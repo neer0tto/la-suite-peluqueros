@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-23T13:57:04.774Z",
+        "reason": "User's restructuring brief explicitly requires a small gold-bordered label 'SAN AGUSTÍN DEL GUADALIX' above the hero title"
+      }
+    ]
+  }
+}
