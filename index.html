@@ -9,12 +9,12 @@
 <meta name="description" content="La Suite Peluqueros, peluquería en San Agustín del Guadalix (Madrid). Corte, color, keratina, recogidos, manicura y estética facial con calma y trato cercano. Pide tu cita por WhatsApp.">
 
 <!-- ===== Open Graph: cómo se ve el enlace al compartirlo por WhatsApp o redes =====
-     PENDIENTE: cuando la web esté publicada, cambia "images/hero.jpg" por la
+     PENDIENTE: cuando la web esté publicada, cambia "images/hero-1.jpg" por la
      dirección completa (https://...) para que WhatsApp muestre la foto. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="La Suite Peluqueros · San Agustín del Guadalix">
 <meta property="og:description" content="Peluquería y belleza con calma, detalle y trato cercano. Pide tu cita por WhatsApp.">
-<meta property="og:image" content="images/hero.jpg">
+<meta property="og:image" content="images/hero-1.jpg">
 <meta property="og:locale" content="es_ES">
 
 <!-- ===== Icono de la pestaña: una "S" dorada sobre negro (sustituir por el logo real) ===== -->
@@ -35,7 +35,7 @@
   "@context": "https://schema.org",
   "@type": "HairSalon",
   "name": "La Suite Peluqueros",
-  "image": "images/hero.jpg",
+  "image": "images/hero-1.jpg",
   "telephone": "+34912905470",
   "email": "oncemillas@hotmail.es",
   "address": {
@@ -113,7 +113,9 @@
        2. PORTADA
        Ordenador: texto a la izquierda (45%) y foto a la derecha (55%).
        Móvil: foto arriba y texto debajo.
-       Para cambiar la foto, sustituye images/hero.jpg (mismo nombre).
+       Tres fotos que se van fundiendo entre sí cada 5 segundos (la
+       lógica está en js/main.js). Para cambiarlas, sustituye
+       images/hero-1.jpg, hero-2.jpg y hero-3.jpg (mismos nombres).
   ============================================================ -->
   <section class="portada" id="portada">
     <div class="portada__texto">
@@ -128,7 +130,9 @@
     </div>
 
     <div class="portada__foto">
-      <img src="images/hero.jpg" alt="Mujer con melena cobriza y flequillo, con el pelo brillante recién peinado" fetchpriority="high">
+      <img class="portada__foto-item esta-visible" src="images/hero-1.jpg" alt="Mujer con melena cobriza y flequillo, con el pelo brillante recién peinado" fetchpriority="high">
+      <img class="portada__foto-item" src="images/hero-2.jpg" alt="Peluquera terminando de secar y peinar la melena de una clienta sonriente" loading="lazy">
+      <img class="portada__foto-item" src="images/hero-3.jpg" alt="Mujer con el pelo recogido en un moño informal" loading="lazy">
     </div>
 
     <div class="portada__scroll" aria-hidden="true">
@@ -141,6 +145,8 @@
        3. SERVICIOS (cada uno como la portada de una revista)
        PENDIENTE: confirmar servicios y precios con el negocio
        No hay precios: si hiciera falta, poner "Consultar".
+       Cada servicio tiene 2 fotos que se funden cada 4 segundos
+       (misma lógica que la portada, en js/main.js).
        El enlace "Reservar este servicio" deja el servicio ya elegido
        en el formulario (el valor de data-reservar-servicio tiene que
        coincidir con el "value" de su opción en el desplegable).
@@ -156,7 +162,8 @@
 
         <article class="servicio" data-animar>
           <div class="servicio__foto">
-            <img src="images/servicio-1.jpg" alt="Peluquera secando con cepillo redondo la melena castaña de una clienta" loading="lazy">
+            <img class="servicio__foto-item esta-visible" src="images/servicio-1a.jpg" alt="Peluquera secando con cepillo redondo la melena castaña de una clienta" loading="lazy">
+            <img class="servicio__foto-item" src="images/servicio-1b.jpg" alt="Peluquera dando forma a un rizo brillante con tenacillas" loading="lazy">
           </div>
           <div class="servicio__texto">
             <span class="numero">001</span>
@@ -169,7 +176,8 @@
 
         <article class="servicio" data-animar>
           <div class="servicio__foto">
-            <img src="images/servicio-2.jpg" alt="Mujer con el pelo rizado y voluminoso sobre un fondo rosado" loading="lazy">
+            <img class="servicio__foto-item esta-visible" src="images/servicio-2a.jpg" alt="Mujer con el pelo rizado y voluminoso sobre un fondo rosado" loading="lazy">
+            <img class="servicio__foto-item" src="images/servicio-2b.jpg" alt="Brochas y pigmentos de color junto a una mano, en tonos cálidos" loading="lazy">
           </div>
           <div class="servicio__texto">
             <span class="numero">002</span>
@@ -182,7 +190,8 @@
 
         <article class="servicio" data-animar>
           <div class="servicio__foto">
-            <img src="images/servicio-3.jpg" alt="Peluquera lavando el pelo a una clienta tumbada en el lavacabezas" loading="lazy">
+            <img class="servicio__foto-item esta-visible" src="images/servicio-3a.jpg" alt="Peluquera lavando el pelo a una clienta tumbada en el lavacabezas" loading="lazy">
+            <img class="servicio__foto-item" src="images/servicio-3b.jpg" alt="Peluquera lavando el pelo a una clienta tumbada en el lavacabezas" loading="lazy">
           </div>
           <div class="servicio__texto">
             <span class="numero">003</span>
@@ -195,7 +204,8 @@
 
         <article class="servicio" data-animar>
           <div class="servicio__foto">
-            <img src="images/servicio-4.jpg" alt="Novia con vestido blanco sosteniendo un ramo de flores a contraluz" loading="lazy">
+            <img class="servicio__foto-item esta-visible" src="images/servicio-4a.jpg" alt="Novia con vestido blanco sosteniendo un ramo de flores a contraluz" loading="lazy">
+            <img class="servicio__foto-item" src="images/servicio-4b.jpg" alt="Novia con vestido blanco sosteniendo un ramo de flores a contraluz" loading="lazy">
           </div>
           <div class="servicio__texto">
             <span class="numero">004</span>
@@ -208,7 +218,8 @@
 
         <article class="servicio" data-animar>
           <div class="servicio__foto">
-            <img src="images/servicio-5.jpg" alt="Manos con manicura en tono nude apoyadas sobre una manta blanca" loading="lazy">
+            <img class="servicio__foto-item esta-visible" src="images/servicio-5a.jpg" alt="Manos con manicura en tono nude apoyadas sobre una manta blanca" loading="lazy">
+            <img class="servicio__foto-item" src="images/servicio-5b.jpg" alt="Mano con manicura en negro y efecto carey" loading="lazy">
           </div>
           <div class="servicio__texto">
             <span class="numero">005</span>
@@ -221,7 +232,8 @@
 
         <article class="servicio" data-animar>
           <div class="servicio__foto">
-            <img src="images/servicio-6.jpg" alt="Clienta con los ojos cerrados mientras le aplican una mascarilla facial con pincel" loading="lazy">
+            <img class="servicio__foto-item esta-visible" src="images/servicio-6a.jpg" alt="Clienta con los ojos cerrados mientras le aplican una mascarilla facial con pincel" loading="lazy">
+            <img class="servicio__foto-item" src="images/servicio-6b.jpg" alt="Clienta recibiendo un tratamiento facial con los ojos cerrados" loading="lazy">
           </div>
           <div class="servicio__texto">
             <span class="numero">006</span>
@@ -237,41 +249,7 @@
   </section>
 
   <!-- ============================================================
-       4. ANTES / DESPUÉS
-       La lógica está en js/antes-despues.js.
-       Las fotos son de EJEMPLO: sustituye images/antes.jpg y
-       images/despues.jpg por trabajos reales del salón (mismo nombre)
-       y entonces podrás quitar el aviso de "Ejemplo".
-  ============================================================ -->
-  <section class="seccion seccion--marfil" id="antes-despues">
-    <div class="contenedor centrado" data-animar>
-      <h2 class="titulo-seccion">El cambio <em>se nota</em>.</h2>
-      <p class="antes-despues-aviso">Ejemplo — próximamente trabajos reales del salón</p>
-
-      <div class="comparador" id="comparador">
-        <img class="comparador__img" src="images/antes.jpg" alt="Antes: mujer con el pelo recogido en un moño informal" loading="lazy">
-
-        <div class="comparador__capa-despues" id="comparadorDespues">
-          <img class="comparador__img" src="images/despues.jpg" alt="Después: mujer sonriente con la melena recién secada y brillante" loading="lazy">
-        </div>
-
-        <span class="comparador__etiqueta comparador__etiqueta--antes">Antes</span>
-        <span class="comparador__etiqueta comparador__etiqueta--despues">Después</span>
-
-        <div class="comparador__linea" id="comparadorLinea">
-          <div class="comparador__agarre"
-               id="comparadorAgarre"
-               role="slider"
-               tabindex="0"
-               aria-label="Mover para comparar antes y después"
-               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">↔</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. OPINIONES
+       4. OPINIONES
        Las opiniones se escriben en js/opiniones.js (lista al principio
        del archivo). Aquí solo está el hueco donde aparecen.
   ============================================================ -->
@@ -298,62 +276,7 @@
   </section>
 
   <!-- ============================================================
-       6. GALERÍA (carrusel con profundidad)
-       La lógica está en js/galeria.js. Para cambiar las fotos,
-       sustituye images/galeria/galeria-1.jpg ... galeria-6.jpg.
-  ============================================================ -->
-  <section class="seccion seccion--marfil" id="galeria">
-    <div class="contenedor" data-animar>
-      <div class="section-cabecera centrado">
-        <span class="etiqueta">Galería</span>
-        <h2 class="titulo-seccion espacio-arriba">Un vistazo <em>al salón</em>.</h2>
-      </div>
-
-      <div class="galeria-carrusel">
-        <div class="galeria-escenario" id="galeriaEscenario" tabindex="0"
-             role="region" aria-roledescription="carrusel"
-             aria-label="Galería de fotos. Usa las flechas del teclado para pasar de foto.">
-          <div class="galeria-item"><img src="images/galeria/galeria-1.jpg" alt="Interior del salón con espejos redondos, sillones negros y pared de ladrillo" loading="lazy"></div>
-          <div class="galeria-item"><img src="images/galeria/galeria-2.jpg" alt="Maquilladora aplicando pintalabios a una clienta" loading="lazy"></div>
-          <div class="galeria-item"><img src="images/galeria/galeria-3.jpg" alt="Mano con manicura en negro y efecto carey" loading="lazy"></div>
-          <div class="galeria-item"><img src="images/galeria/galeria-4.jpg" alt="Mano sujetando una paleta de sombras de ojos y un pincel" loading="lazy"></div>
-          <div class="galeria-item"><img src="images/galeria/galeria-5.jpg" alt="Varias manos sosteniendo cepillos, tijeras y herramientas de peluquería" loading="lazy"></div>
-          <div class="galeria-item"><img src="images/galeria/galeria-6.jpg" alt="Tocadores del salón con sillones y espejos junto a grandes ventanales" loading="lazy"></div>
-        </div>
-
-        <div class="galeria-flechas">
-          <button type="button" class="galeria-flecha" id="galeriaAnterior" aria-label="Foto anterior">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-          </button>
-          <button type="button" class="galeria-flecha" id="galeriaSiguiente" aria-label="Foto siguiente">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-        <div class="galeria-puntos" id="galeriaPuntos"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       7. EL SALÓN
-       PENDIENTE: historia real del salón
-  ============================================================ -->
-  <section class="seccion" id="salon">
-    <div class="contenedor salon" data-animar>
-      <div class="salon__foto">
-        <img src="images/salon.jpg" alt="Sillón de peluquería negro frente al espejo, con luz cálida y pared de ladrillo" loading="lazy">
-      </div>
-      <div class="salon__texto">
-        <span class="etiqueta">El salón</span>
-        <h2 class="titulo-seccion espacio-arriba">Un espacio <em>pensado para ti</em>.</h2>
-        <p>Aquí vienes a cuidarte sin prisas. Te escuchamos, te aconsejamos y trabajamos con calma, atentas a cada detalle.</p>
-        <p>Queremos que salgas sintiéndote tú, solo que un poco mejor.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       8. RESERVAR CITA
+       5. RESERVAR CITA
        Sin backend: el formulario abre WhatsApp con el mensaje ya
        escrito (la lógica está en js/main.js). Así el negocio no
        depende de plataformas de pago y confirma él mismo cada cita.
@@ -411,7 +334,66 @@
   </section>
 
   <!-- ============================================================
-       9. VISÍTANOS
+       6. GALERÍA (carrusel con profundidad)
+       La lógica está en js/galeria.js. Pasa sola cada 4 segundos;
+       si el usuario toca, arrastra o usa las flechas, se detiene
+       3 segundos y luego sigue sola. Para cambiar las fotos,
+       sustituye images/galeria/galeria-1.jpg ... galeria-6.jpg.
+  ============================================================ -->
+  <section class="seccion seccion--marfil" id="galeria">
+    <div class="contenedor" data-animar>
+      <div class="section-cabecera centrado">
+        <span class="etiqueta">Galería</span>
+        <h2 class="titulo-seccion espacio-arriba">Un vistazo <em>al salón</em>.</h2>
+      </div>
+
+      <div class="galeria-carrusel">
+        <div class="galeria-escenario" id="galeriaEscenario" tabindex="0"
+             role="region" aria-roledescription="carrusel"
+             aria-label="Galería de fotos. Pasa sola; usa las flechas del teclado para pasar de foto tú misma.">
+          <div class="galeria-item"><img src="images/galeria/galeria-1.jpg" alt="Interior del salón con espejos redondos, sillones negros y pared de ladrillo" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-2.jpg" alt="Maquilladora aplicando pintalabios a una clienta" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-3.jpg" alt="Mano con manicura en negro y efecto carey" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-4.jpg" alt="Mano sujetando una paleta de sombras de ojos y un pincel" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-5.jpg" alt="Varias manos sosteniendo cepillos, tijeras y herramientas de peluquería" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-6.jpg" alt="Tocadores del salón con sillones y espejos junto a grandes ventanales" loading="lazy"></div>
+        </div>
+
+        <div class="galeria-flechas">
+          <button type="button" class="galeria-flecha" id="galeriaAnterior" aria-label="Foto anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" class="galeria-flecha" id="galeriaSiguiente" aria-label="Foto siguiente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="galeria-puntos" id="galeriaPuntos"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. EL SALÓN
+       PENDIENTE: historia real del salón
+  ============================================================ -->
+  <section class="seccion" id="salon">
+    <div class="contenedor salon" data-animar>
+      <div class="salon__foto">
+        <img src="images/salon.jpg" alt="Sillón de peluquería negro frente al espejo, con luz cálida y pared de ladrillo" loading="lazy">
+      </div>
+      <div class="salon__texto">
+        <span class="etiqueta">El salón</span>
+        <h2 class="titulo-seccion espacio-arriba">Un espacio <em>pensado para ti</em>.</h2>
+        <p>Aquí vienes a cuidarte sin prisas. Te escuchamos, te aconsejamos y trabajamos con calma, atentas a cada detalle.</p>
+        <p>Queremos que salgas sintiéndote tú, solo que un poco mejor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. VISÍTANOS
+       El mapa lleva debajo el botón "Cómo llegar", que abre la ruta
+       en Google Maps en una pestaña nueva.
   ============================================================ -->
   <section class="seccion" id="visitanos">
     <div class="contenedor visitanos" data-animar>
@@ -446,13 +428,18 @@
         </div>
       </div>
 
-      <div class="visitanos__mapa">
-        <iframe
-          title="Mapa: La Suite Peluqueros en San Agustín del Guadalix"
-          src="https://www.google.com/maps?q=C.+de+Juli%C3%A1n+Berrendero,+3,+28750+San+Agust%C3%ADn+del+Guadalix,+Madrid&amp;output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
+      <div class="visitanos__mapa-zona">
+        <div class="visitanos__mapa">
+          <iframe
+            title="Mapa: La Suite Peluqueros en San Agustín del Guadalix"
+            src="https://www.google.com/maps?q=C.+de+Juli%C3%A1n+Berrendero,+3,+28750+San+Agust%C3%ADn+del+Guadalix,+Madrid&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <a class="boton boton--dorado visitanos__como-llegar"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=C.+de+Juli%C3%A1n+Berrendero+3%2C+28750+San+Agust%C3%ADn+del+Guadalix%2C+Madrid"
+           target="_blank" rel="noopener noreferrer">Cómo llegar</a>
       </div>
     </div>
   </section>
@@ -460,7 +447,7 @@
 </main>
 
 <!-- ============================================================
-     10. PIE DE PÁGINA
+     9. PIE DE PÁGINA
      El año se pone solo con JavaScript (js/main.js).
 ============================================================ -->
 <footer class="pie">
@@ -504,6 +491,5 @@
 <script src="js/main.js"></script>
 <script src="js/opiniones.js"></script>
 <script src="js/galeria.js"></script>
-<script src="js/antes-despues.js"></script>
 </body>
 </html>

@@ -4,8 +4,13 @@
    nítida; las de los lados, más pequeñas, un poco giradas hacia
    dentro y medio transparentes.
 
-   Se mueve deslizando con el dedo, con las flechas, con las
-   flechas del teclado o tocando los puntos. No se mueve solo.
+   Pasa sola cada 4 segundos, con un fundido suave (lo hace el CSS,
+   animando la transformación y la opacidad de cada foto). El
+   usuario puede pasar de foto en cualquier momento deslizando con
+   el dedo, con las flechas, con las flechas del teclado o tocando
+   los puntos; al hacerlo, el pase automático se detiene 3 segundos
+   y luego sigue solo. Si el usuario tiene activado "reducir
+   movimiento", el pase automático no se activa nunca.
 
    Para cambiar las fotos, sustituye images/galeria/galeria-1.jpg
    ... galeria-6.jpg por otras con el mismo nombre.
@@ -20,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!escenario) return;
 
+  const prefiereMenosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const fotos = Array.from(escenario.querySelectorAll('.galeria-item'));
   const total = fotos.length;
   let actual = 0;
@@ -30,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     punto.type = 'button';
     punto.className = 'galeria-punto';
     punto.setAttribute('aria-label', 'Ver foto ' + (indice + 1) + ' de ' + total);
-    punto.addEventListener('click', function () { ir(indice); });
+    punto.addEventListener('click', function () { irManual(indice); });
     zonaPuntos.appendChild(punto);
     return punto;
   });
@@ -82,23 +89,48 @@ document.addEventListener('DOMContentLoaded', function () {
     colocar();
   }
 
+  /* ---------- Pase automático ----------
+     "ir()" lo usa tanto el pase automático como el usuario. Para
+     no confundir uno con otro, el usuario siempre pasa a través de
+     "irManual()", que además reinicia la cuenta de 3 segundos. */
+  let autoplay = null;
+  let esperaParaReanudar = null;
+
+  function iniciarAutoplay() {
+    if (prefiereMenosMovimiento) return;
+    clearInterval(autoplay);
+    autoplay = setInterval(function () { ir(actual + 1); }, 4000);
+  }
+
+  function pausarYReanudarAutoplay() {
+    if (prefiereMenosMovimiento) return;
+    clearInterval(autoplay);
+    clearTimeout(esperaParaReanudar);
+    esperaParaReanudar = setTimeout(iniciarAutoplay, 3000);
+  }
+
+  function irManual(indice) {
+    ir(indice);
+    pausarYReanudarAutoplay();
+  }
+
   // Tocar una foto lateral la trae al centro
   fotos.forEach(function (foto, indice) {
     foto.addEventListener('click', function () {
-      if (indice !== actual) ir(indice);
+      if (indice !== actual) irManual(indice);
     });
   });
 
-  if (botonAnterior) botonAnterior.addEventListener('click', function () { ir(actual - 1); });
-  if (botonSiguiente) botonSiguiente.addEventListener('click', function () { ir(actual + 1); });
+  if (botonAnterior) botonAnterior.addEventListener('click', function () { irManual(actual - 1); });
+  if (botonSiguiente) botonSiguiente.addEventListener('click', function () { irManual(actual + 1); });
 
   // Teclado: con el carrusel enfocado, las flechas pasan de foto
   escenario.addEventListener('keydown', function (evento) {
     if (evento.key === 'ArrowLeft') {
-      ir(actual - 1);
+      irManual(actual - 1);
       evento.preventDefault();
     } else if (evento.key === 'ArrowRight') {
-      ir(actual + 1);
+      irManual(actual + 1);
       evento.preventDefault();
     }
   });
@@ -123,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const diferencia = evento.clientX - inicioX;
     inicioX = null;
     if (Math.abs(diferencia) > 50) {
-      ir(diferencia < 0 ? actual + 1 : actual - 1);
+      irManual(diferencia < 0 ? actual + 1 : actual - 1);
     }
   });
 
@@ -141,5 +173,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }, true);
 
   colocar();
+  iniciarAutoplay();
 
 });

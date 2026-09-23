@@ -9,10 +9,9 @@ Se puede publicar tal cual en GitHub Pages: no necesita servidor.
 ```
 index.html            → Todo el contenido, sección por sección (comentado)
 css/styles.css        → Todos los estilos. Colores y letras al principio (:root)
-js/main.js            → Menú, animaciones al hacer scroll y formulario de reservas
+js/main.js            → Menú, animaciones, fotos en fundido y formulario de reservas
 js/opiniones.js       → Opiniones que van cambiando (la lista está al principio)
-js/galeria.js         → Carrusel de la galería
-js/antes-despues.js   → Comparador de fotos antes / después
+js/galeria.js         → Carrusel de la galería (pasa sola cada 4 segundos)
 images/               → Fotos (ver IMAGENES-PENDIENTES.md)
 ```
 

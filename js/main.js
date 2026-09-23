@@ -5,10 +5,12 @@
       la píldora flotante del móvil con la sección activa.
    2) Las animaciones al hacer scroll (aparecer con fundido).
    3) El formulario de "Reservar cita" y su mensaje de WhatsApp.
+   4) Las fotos de la portada y de cada servicio, que se van
+      fundiendo entre sí solas.
 
-   Los otros archivos (opiniones.js, galeria.js, antes-despues.js)
-   llevan cada uno su propia parte, para que sea fácil encontrar
-   qué tocar si quieres cambiar algo.
+   Los otros archivos (opiniones.js, galeria.js) llevan cada uno su
+   propia parte, para que sea fácil encontrar qué tocar si quieres
+   cambiar algo.
 ========================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -177,5 +179,39 @@ document.addEventListener('DOMContentLoaded', function () {
       fila.classList.add('es-hoy');
     }
   });
+
+  /* ==========================================================
+     4) FOTOS EN FUNDIDO (portada y servicios)
+     Dentro de cada grupo de fotos (la portada tiene 3, cada
+     servicio tiene 2) se van turnando: una visible y las demás
+     ocultas, alternando la clase "esta-visible" cada cierto
+     tiempo. El propio CSS se encarga del fundido suave.
+
+     Si el usuario tiene activado "reducir movimiento", se deja
+     fija la primera foto de cada grupo y no se mueve más.
+  ========================================================== */
+  const prefiereMenosMovimientoFotos = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function iniciarFundidoDeFotos(selectorGrupo, milisegundos) {
+    document.querySelectorAll(selectorGrupo).forEach(function (grupo) {
+      const fotos = grupo.querySelectorAll('img');
+      if (fotos.length < 2) return;
+
+      // La primera ya lleva "esta-visible" en el HTML; si por lo
+      // que sea no la llevara, se la ponemos aquí igualmente
+      fotos[0].classList.add('esta-visible');
+      if (prefiereMenosMovimientoFotos) return;
+
+      let indice = 0;
+      setInterval(function () {
+        fotos[indice].classList.remove('esta-visible');
+        indice = (indice + 1) % fotos.length;
+        fotos[indice].classList.add('esta-visible');
+      }, milisegundos);
+    });
+  }
+
+  iniciarFundidoDeFotos('.portada__foto', 5000);
+  iniciarFundidoDeFotos('.servicio__foto', 4000);
 
 });

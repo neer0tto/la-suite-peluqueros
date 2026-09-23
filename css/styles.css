@@ -464,6 +464,7 @@ button:focus-visible,
   position: relative;
   height: 60vh;
   overflow: hidden;
+  border-radius: 16px;
   /* En móvil la foto va primero y el texto debajo */
   order: -1;
 }
@@ -479,12 +480,23 @@ button:focus-visible,
   pointer-events: none;
 }
 
-.portada__foto img {
+/* Tres fotos en el mismo hueco, una encima de otra. js/main.js va
+   alternando cuál se ve (clase "esta-visible") cada 5 segundos,
+   con un fundido de 1 segundo entre una y otra. */
+.portada__foto-item {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
   transform: scale(1);
+  transition: opacity 1s ease;
   animation: zoomSuave 12s var(--curva) infinite alternate;
+}
+
+.portada__foto-item.esta-visible {
+  opacity: 1;
 }
 
 @keyframes zoomSuave {
@@ -634,7 +646,6 @@ button:focus-visible,
 /* Sobre fondo marfil el dorado no se lee en textos pequeños,
    así que ahí los textos van en gris oscuro y el dorado queda
    solo para líneas y bordes */
-.seccion--marfil .antes-despues-aviso,
 .seccion--marfil .campo label,
 .seccion--marfil .reserva-llamar {
   color: #6b655d;
@@ -682,15 +693,26 @@ button:focus-visible,
 }
 
 .servicio__foto {
+  position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 
-.servicio__foto img {
+/* Dos fotos en el mismo hueco. js/main.js alterna cuál se ve
+   (clase "esta-visible") cada 4 segundos, con un fundido suave. */
+.servicio__foto-item {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.servicio__foto-item.esta-visible {
+  opacity: 1;
 }
 
 .servicio__texto {
@@ -743,96 +765,6 @@ button:focus-visible,
   }
 }
 
-/* ---------- ANTES / DESPUÉS ---------- */
-.antes-despues-aviso {
-  display: inline-block;
-  margin-bottom: 28px;
-  font-size: 0.78rem;
-  color: var(--gris);
-  border: 1px solid var(--dorado-30);
-  border-radius: 999px;
-  padding: 7px 16px;
-}
-
-.comparador {
-  position: relative;
-  max-width: 720px;
-  margin: 0 auto;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border-radius: 2px;
-  touch-action: pan-y;
-  user-select: none;
-  cursor: ew-resize;
-}
-
-.comparador__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-.comparador__capa-despues {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  clip-path: inset(0 0 0 50%);
-}
-
-.comparador__etiqueta {
-  position: absolute;
-  top: 16px;
-  z-index: 2;
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--marfil);
-  background-color: rgba(14, 14, 14, 0.55);
-  border: 1px solid var(--dorado-30);
-  border-radius: 999px;
-  padding: 6px 14px;
-  pointer-events: none;
-}
-
-.comparador__etiqueta--antes { left: 16px; }
-.comparador__etiqueta--despues { right: 16px; }
-
-.comparador__linea {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 1px;
-  background-color: var(--dorado);
-  transform: translateX(-50%);
-  z-index: 3;
-}
-
-.comparador__agarre {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: var(--marfil);
-  border: 1px solid var(--dorado);
-  color: var(--negro);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
-}
-
-.comparador__agarre:focus-visible {
-  outline: 2px solid var(--dorado);
-  outline-offset: 3px;
-}
-
 /* ---------- OPINIONES ---------- */
 .opiniones {
   display: flex;
@@ -853,10 +785,6 @@ button:focus-visible,
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-#antes-despues .titulo-seccion {
-  margin-bottom: 20px;
 }
 
 .opiniones__numero {
@@ -978,11 +906,6 @@ button:focus-visible,
 
   .opiniones__puntos {
     justify-content: flex-start;
-  }
-
-  /* En ordenador el comparador es algo más estrecho para caber en pantalla */
-  .comparador {
-    max-width: 560px;
   }
 }
 
@@ -1247,10 +1170,24 @@ button:focus-visible,
   border-color: var(--dorado);
 }
 
+/* El mapa se hizo más discreto: dos tercios de su ancho anterior
+   (era 327×245px en móvil y 556×521px en ordenador), manteniendo
+   la misma proporción. Va centrado, con el botón "Cómo llegar"
+   debajo, del mismo ancho. */
+.visitanos__mapa-zona {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 218px;
+  margin-inline: auto;
+}
+
 .visitanos__mapa {
+  width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 
 .visitanos__mapa iframe {
@@ -1260,16 +1197,68 @@ button:focus-visible,
   filter: grayscale(1) contrast(1.1);
 }
 
+.visitanos__como-llegar {
+  width: 100%;
+}
+
 @media (min-width: 900px) {
   .visitanos {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
   }
 
-  .visitanos__mapa {
-    aspect-ratio: auto;
-    height: 100%;
+  .visitanos__mapa-zona {
+    /* Ancho fijo (no "max-width"): si se deja que el ancho se
+       calcule solo, el iframe del mapa impone su tamaño por
+       defecto (300px) en vez del 371px que queremos. También hay
+       que anular el "max-width" de móvil, que si no se queda
+       recortando el ancho aquí también. */
+    max-width: none;
+    width: 371px;
+    margin-inline: 0;
+    justify-self: center;
   }
+
+  .visitanos__mapa {
+    aspect-ratio: 556 / 521;
+  }
+}
+
+/* ---------- SECCIONES MÁS COMPACTAS ----------
+   Opiniones, Galería, El salón y Visítanos ocupan menos alto que
+   antes (aprox. un 25% menos de espacio arriba/abajo). Servicios y
+   Reservar cita se dejan exactamente igual, a propósito: son las
+   dos secciones más importantes de la página. No se quita ningún
+   texto ni foto, solo se acerca todo un poco. */
+#opiniones,
+#galeria,
+#salon,
+#visitanos {
+  padding: 68px 0; /* antes: 88px (heredado de .seccion) */
+}
+
+#opiniones .opiniones {
+  gap: 36px; /* antes: 48px (en móvil; en ordenador no se toca) */
+}
+
+#galeria .section-cabecera {
+  margin-bottom: 42px; /* antes: 56px (heredado de .section-cabecera) */
+}
+
+#salon .salon {
+  gap: 24px; /* antes: 32px (en móvil; en ordenador no se toca) */
+}
+
+#visitanos .visitanos__direccion {
+  margin-bottom: 21px; /* antes: 28px */
+}
+
+#visitanos .visitanos__tabla {
+  margin-bottom: 21px; /* antes: 28px */
+}
+
+#visitanos .visitanos__contacto {
+  margin-bottom: 18px; /* antes: 24px */
 }
 
 /* ---------- PIE DE PÁGINA ---------- */
@@ -1322,8 +1311,10 @@ button:focus-visible,
    Si la persona tiene activada esta preferencia en su sistema,
    se quitan todas las animaciones (zoom, opiniones, fundidos). */
 @media (prefers-reduced-motion: reduce) {
-  .portada__foto img {
+  .portada__foto-item,
+  .servicio__foto-item {
     animation: none;
+    transition: none;
   }
 
   .portada__scroll-linea::after {
