@@ -1,53 +1,37 @@
 # La Suite Peluqueros — Web
 
-Sitio web estático (HTML, CSS y JavaScript vanilla) para La Suite Peluqueros,
-peluquería unisex y salón de belleza en San Agustín de Guadalix, Madrid.
+Web de una sola página (HTML, CSS y JavaScript sin librerías) para
+La Suite Peluqueros, peluquería en San Agustín del Guadalix (Madrid).
+Se puede publicar tal cual en GitHub Pages: no necesita servidor.
 
-Listo para publicar en GitHub Pages, sin backend ni dependencias externas.
-
-## Estructura
+## Archivos
 
 ```
-index.html          → Toda la estructura y el contenido de la página
-css/style.css        → Todos los estilos (colores, tipografías, diseño responsive)
-js/main.js            → Menú móvil y año del footer
-js/reservas.js        → Sistema de reservas por WhatsApp (sin backend)
-images/hero/           → Imagen de fondo del hero (portada)
-images/servicios/      → Iconos/imágenes de servicios (si se añaden)
-images/galeria/         → Fotos de la galería (local, equipo, resultados)
+index.html            → Todo el contenido, sección por sección (comentado)
+css/styles.css        → Todos los estilos. Colores y letras al principio (:root)
+js/main.js            → Menú, animaciones al hacer scroll y formulario de reservas
+js/opiniones.js       → Opiniones que van cambiando (la lista está al principio)
+js/galeria.js         → Carrusel de la galería
+js/antes-despues.js   → Comparador de fotos antes / después
+images/               → Fotos (ver IMAGENES-PENDIENTES.md)
 ```
 
-## Cómo editar lo básico
+## Cambios habituales
 
-- **Textos**: abre `index.html` con cualquier editor (recomendado VS Code) y
-  busca el texto que quieras cambiar. Está todo en español y comentado por
-  secciones (`<!-- SOBRE NOSOTROS -->`, `<!-- SERVICIOS -->`, etc.).
-- **Colores**: en `css/style.css`, al principio del archivo, están las
-  variables `--color-negro`, `--color-dorado`, etc. Cambia el código de color
-  ahí y se actualiza en toda la web.
-- **Precios de servicios**: cada tarjeta de servicio en `index.html` tiene un
-  `<span class="service-card__price">Consultar precio</span>`. Sustituye ese
-  texto por el precio real cuando lo tengas.
-- **Fotos**: sustituye las imágenes de `images/galeria/` por fotos reales
-  manteniendo los mismos nombres de archivo (o actualiza las rutas `src` en
-  `index.html` si usas otros nombres).
-- **Horario**: revisado en `index.html`, sección "Ubicación y contacto". Hay
-  un comentario avisando de que el horario debe confirmarse con el negocio.
-- **Número de WhatsApp**: si cambia, edita la constante `NUMERO_WHATSAPP` en
-  `js/reservas.js` y el enlace del botón flotante en `index.html`.
+- **Textos:** abre `index.html` y busca el texto. Cada sección empieza con un
+  comentario con su número y nombre (`1. MENÚ`, `2. PORTADA`...).
+- **Colores:** al principio de `css/styles.css`, en `:root`.
+- **Opiniones:** edita la lista `OPINIONES` al principio de `js/opiniones.js`.
+- **Fotos:** sustituye el archivo por otro con el mismo nombre
+  (lista completa en `IMAGENES-PENDIENTES.md`).
+- **WhatsApp de reservas:** constante `NUMERO_WHATSAPP` en `js/main.js`
+  y enlace `wa.me` de la sección "Visítanos" en `index.html`.
 
-## Publicar en GitHub Pages
+## Verla en tu ordenador
 
-1. Crea un repositorio en GitHub y sube todos estos archivos (o usa
-   `git init`, `git add .`, `git commit`, `git push`).
-2. En el repositorio, ve a **Settings → Pages**.
-3. En "Source", selecciona la rama principal (`main`) y la carpeta raíz (`/`).
-4. Guarda. GitHub te dará una URL pública (tipo
-   `https://tu-usuario.github.io/nombre-repositorio/`).
+Desde esta carpeta, arranca un servidor local (por ejemplo
+`python -m http.server 8080`) y abre `http://localhost:8080/`.
 
-## Notas pendientes
+## Pendientes
 
-- Sustituir imágenes de stock por fotos reales del local y del equipo.
-- Confirmar horario real de apertura (marcado en el código).
-- Añadir precios reales de servicios cuando estén definidos.
-- Sustituir testimonios de ejemplo por reseñas reales de Google.
+Busca `PENDIENTE` en `index.html` y `EJEMPLO` en `js/opiniones.js`.

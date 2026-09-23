@@ -2,240 +2,234 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<!-- ===== SEO básico ===== -->
-<title>La Suite Peluqueros | Peluquería Unisex y Salón de Belleza en San Agustín de Guadalix</title>
-<meta name="description" content="La Suite Peluqueros: peluquería unisex y salón de belleza en San Agustín de Guadalix, Madrid. Corte, coloración, tratamientos capilares, recogidos, manicura y estética facial. Reserva tu cita por WhatsApp.">
-<meta name="keywords" content="peluquería San Agustín de Guadalix, peluquería unisex Madrid, salón de belleza Guadalix, La Suite Peluqueros">
-<link rel="canonical" href="https://lasuitepeluqueros.github.io/">
+<!-- ===== Título y descripción para Google ===== -->
+<title>La Suite Peluqueros | Peluquería en San Agustín del Guadalix</title>
+<meta name="description" content="La Suite Peluqueros, peluquería en San Agustín del Guadalix (Madrid). Corte, color, keratina, recogidos, manicura y estética facial con calma y trato cercano. Pide tu cita por WhatsApp.">
 
-<!-- ===== Open Graph (para compartir en WhatsApp / redes) ===== -->
+<!-- ===== Open Graph: cómo se ve el enlace al compartirlo por WhatsApp o redes =====
+     PENDIENTE: cuando la web esté publicada, cambia "images/hero.jpg" por la
+     dirección completa (https://...) para que WhatsApp muestre la foto. -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="La Suite Peluqueros | Peluquería Unisex y Salón de Belleza">
-<meta property="og:description" content="Peluquería unisex y salón de belleza en San Agustín de Guadalix, Madrid. Reserva tu cita en segundos por WhatsApp.">
-<meta property="og:image" content="images/hero/hero-salon.jpg">
+<meta property="og:title" content="La Suite Peluqueros · San Agustín del Guadalix">
+<meta property="og:description" content="Peluquería y belleza con calma, detalle y trato cercano. Pide tu cita por WhatsApp.">
+<meta property="og:image" content="images/hero.jpg">
 <meta property="og:locale" content="es_ES">
-<meta property="og:url" content="https://lasuitepeluqueros.github.io/">
 
-<!-- ===== Favicon (placeholder con inicial dorada; sustituir por el logo real) ===== -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23121110'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23b8925a' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<!-- ===== Icono de la pestaña: una "S" dorada sobre negro (sustituir por el logo real) ===== -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230E0E0E'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='62' fill='%23C6A15B' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 
-<!-- ===== Fuentes de Google Fonts ===== -->
+<!-- ===== Letras de Google Fonts ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- ===== Estilos ===== -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- ===== Datos para Google (ficha del negocio) =====
+     PENDIENTE: confirmar horario (una fuente dice que cierran los miércoles). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "La Suite Peluqueros",
+  "image": "images/hero.jpg",
+  "telephone": "+34912905470",
+  "email": "oncemillas@hotmail.es",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. de Julián Berrendero, 3",
+    "addressLocality": "San Agustín del Guadalix",
+    "postalCode": "28750",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "10:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "14:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "reviewCount": "92"
+  },
+  "sameAs": [
+    "https://www.instagram.com/lasuitepeluqueros/",
+    "https://www.facebook.com/people/La-Suite-peluqueros/100067002258093/"
+  ]
+}
+</script>
 </head>
 <body>
 
-<!-- Elemento invisible usado por js/main.js para saber cuándo
-     el usuario ha empezado a hacer scroll (ver header.is-scrolled) -->
-<div id="scrollSentinel" style="position:absolute; top:0; height:1px; width:1px;"></div>
+<!-- Enlace para saltar el menú con el teclado (solo aparece al pulsar Tab) -->
+<a href="#contenido" class="salto-contenido">Saltar al contenido</a>
 
 <!-- ============================================================
-     HEADER / NAVEGACIÓN FIJA
-     Editable: para cambiar el nombre del negocio o los enlaces
-     del menú, edita directamente el texto aquí abajo.
+     1. MENÚ
+     Un solo <header> que cambia según la pantalla:
+     - Móvil (menos de 900px): cabecera fina con el logo centrado.
+       La navegación está en la píldora de abajo (al final del body).
+     - Ordenador (900px o más): enlaces a los lados del logo. Al bajar
+       más de 80px se vuelve negro, más bajo y con una línea dorada.
 ============================================================ -->
-<header class="header" id="header">
-  <div class="container header__inner">
-    <a href="#inicio" class="logo">La Suite <span>Peluqueros</span></a>
-
-    <!-- NAV ESCRITORIO: PENDIENTE DE DISEÑO FINAL
-         Placeholder temporal: menú clásico logo izquierda / enlaces derecha.
-         Solo visible en escritorio (a partir de 761px); en móvil se usa la
-         píldora flotante inferior (ver <nav class="mobile-nav"> al final del body). -->
-    <nav class="nav" id="nav">
-      <ul class="nav__list">
-        <li><a href="#sobre-nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#resenas">Reseñas</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-      </ul>
+<header class="cabecera" id="cabecera">
+  <div class="cabecera__inner">
+    <nav class="cabecera__lado cabecera__lado--izquierda" aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#galeria">Galería</a>
     </nav>
 
-    <a href="#reservas" class="btn btn--gold nav__cta">Reservar cita</a>
-    <!-- FIN NAV ESCRITORIO: PENDIENTE DE DISEÑO FINAL -->
+    <a href="#portada" class="cabecera__centro" aria-label="La Suite Peluqueros, ir al inicio">
+      <span class="cabecera__logo">La Suite</span>
+      <span class="cabecera__logo-sub">PELUQUEROS</span>
+    </a>
+
+    <nav class="cabecera__lado cabecera__lado--derecha" aria-label="Salón y contacto">
+      <a href="#salon">El salón</a>
+      <a href="#visitanos">Contacto</a>
+      <a href="#reservar" class="boton boton--linea cabecera__cta">Pedir cita</a>
+    </nav>
   </div>
 </header>
 
-<main>
+<main id="contenido">
 
   <!-- ============================================================
-       HERO
+       2. PORTADA
+       Ordenador: texto a la izquierda (45%) y foto a la derecha (55%).
+       Móvil: foto arriba y texto debajo.
+       Para cambiar la foto, sustituye images/hero.jpg (mismo nombre).
   ============================================================ -->
-  <section class="hero" id="inicio">
-    <!-- Imagen de fondo: foto de stock (Unsplash) en images/hero/hero-salon.jpg.
-         Sustituye ese archivo por una foto real del local cuando la tengas,
-         manteniendo el mismo nombre — no hace falta tocar el HTML/CSS. -->
-    <div class="hero__bg" style="background-image: url('images/hero/hero-salon.jpg');"></div>
-    <div class="hero__overlay"></div>
-
-    <div class="container hero__content">
-      <p class="eyebrow">Peluquería unisex &amp; salón de belleza</p>
-      <h1 class="hero__title">Tu mejor versión empieza aquí</h1>
-      <p class="hero__subtitle">Cuidado experto, ambiente cálido y resultados que se notan. En San Agustín de Guadalix, a tu medida.</p>
-      <div class="hero__actions">
-        <a href="#reservas" class="btn btn--gold">Reserva tu cita</a>
-        <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+  <section class="portada" id="portada">
+    <div class="portada__texto">
+      <span class="etiqueta">San Agustín del Guadalix</span>
+      <h1 class="portada__titulo">Tu <em>momento</em>, en buenas manos.</h1>
+      <p class="portada__subtitulo">Peluquería y belleza con calma, detalle y trato cercano.</p>
+      <div class="portada__acciones">
+        <a href="#reservar" class="boton boton--dorado">Reservar cita</a>
+        <a href="#servicios" class="boton boton--linea">Ver servicios</a>
       </div>
+      <p class="portada__confianza"><strong>★ 4,8</strong> · +92 opiniones en Google</p>
+    </div>
+
+    <div class="portada__foto">
+      <img src="images/hero.jpg" alt="Mujer con melena cobriza y flequillo, con el pelo brillante recién peinado" fetchpriority="high">
+    </div>
+
+    <div class="portada__scroll" aria-hidden="true">
+      <span class="portada__scroll-linea"></span>
+      <span>SCROLL</span>
     </div>
   </section>
 
   <!-- ============================================================
-       ANTES / DESPUÉS
-       Comparador deslizante construido en JavaScript vanilla
-       (js/comparador.js), táctil y accesible por teclado.
-       Imágenes de ejemplo en images/hero/antes.jpg y despues.jpg —
-       sustitúyelas por fotos reales del mismo cliente/servicio
-       manteniendo esos mismos nombres de archivo.
+       3. SERVICIOS (cada uno como la portada de una revista)
+       PENDIENTE: confirmar servicios y precios con el negocio
+       No hay precios: si hiciera falta, poner "Consultar".
+       El enlace "Reservar este servicio" deja el servicio ya elegido
+       en el formulario (el valor de data-reservar-servicio tiene que
+       coincidir con el "value" de su opción en el desplegable).
   ============================================================ -->
-  <section class="section before-after-section" id="antes-despues">
-    <div class="container">
-      <div class="section__heading" data-animate>
-        <h2>Desliza y compara</h2>
-        <p class="section__subtext">Arrastra la línea para ver la transformación. Fotos de ejemplo, pronto con resultados reales del salón.</p>
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+      <div class="section-cabecera" data-animar>
+        <span class="etiqueta">Servicios</span>
+        <h2 class="titulo-seccion espacio-arriba">Lo que hacemos <em>por ti</em>.</h2>
       </div>
 
-      <div class="before-after" id="beforeAfter" data-animate="scale">
-        <img class="before-after__img before-after__img--before" src="images/hero/antes.jpg" alt="Antes del servicio">
+      <div class="servicios-lista">
 
-        <div class="before-after__after-wrap" id="beforeAfterAfterWrap">
-          <img class="before-after__img before-after__img--after" src="images/hero/despues.jpg" alt="Después del servicio">
-        </div>
-
-        <span class="before-after__label before-after__label--before">Antes</span>
-        <span class="before-after__label before-after__label--after">Después</span>
-
-        <div class="before-after__handle"
-             id="beforeAfterHandle"
-             role="slider"
-             tabindex="0"
-             aria-label="Comparar antes y después"
-             aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-          <span class="before-after__grip">↔</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SOBRE NOSOTROS
-       Texto genérico y editable: sustituye este párrafo por la
-       historia real del salón cuando la tengas.
-  ============================================================ -->
-  <section class="section" id="sobre-nosotros">
-    <div class="container about">
-      <div class="about__image" data-animate="left">
-        <!-- Foto de stock, placeholder — sustituir por images/about/about-salon.jpg real -->
-        <img src="images/about/about-salon.jpg"
-             alt="Interior del salón La Suite Peluqueros" loading="lazy">
-      </div>
-      <div class="about__text" data-animate="right">
-        <h2>Un espacio pensado para cuidarte</h2>
-        <p>
-          En La Suite Peluqueros creemos que cuidarte no debería ser complicado. Somos un equipo
-          de profesionales apasionados por la belleza y el bienestar, dedicados a ofrecerte un
-          servicio cercano, cuidado hasta el último detalle, en un ambiente tranquilo y acogedor.
-        </p>
-        <p>
-          Ya sea un cambio de look, un tratamiento para recuperar tu pelo o simplemente un
-          momento para ti, en nuestro salón encontrarás siempre atención personalizada y las
-          últimas técnicas del sector. Porque cada visita es una oportunidad para sentirte mejor.
-        </p>
-        <!-- Texto editable: sustitúyelo por la historia real del negocio cuando la tengas -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SERVICIOS
-       Sin precios reales todavía: se muestra "Consultar" en cada
-       tarjeta. Cuando tengas la lista de precios, añade un <span
-       class="service-card__price"> con el precio dentro de cada
-       tarjeta.
-  ============================================================ -->
-  <section class="section section--dark" id="servicios">
-    <div class="container">
-      <div class="section__heading" data-animate>
-        <p class="eyebrow">Nuestros servicios</p>
-        <h2>Todo lo que necesitas, en un solo lugar</h2>
-      </div>
-
-      <div class="services-grid" data-animate-group>
-
-        <article class="service-card" data-animate="scale">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/>
-              <line x1="8.5" y1="7.5" x2="19" y2="18"/><line x1="8.5" y1="16.5" x2="19" y2="6"/>
-            </svg>
+        <article class="servicio" data-animar>
+          <div class="servicio__foto">
+            <img src="images/servicio-1.jpg" alt="Peluquera secando con cepillo redondo la melena castaña de una clienta" loading="lazy">
           </div>
-          <h3>Corte y peinado</h3>
-          <p>Cortes a medida para hombre, mujer y niños, con acabado y peinado profesional.</p>
-          <span class="service-card__price">Consultar precio</span>
+          <div class="servicio__texto">
+            <span class="numero">001</span>
+            <span class="etiqueta">Corte</span>
+            <h3 class="servicio__titulo">Corte y peinado</h3>
+            <p class="servicio__descripcion">Un corte pensado para ti y tu día a día, con un acabado que dura.</p>
+            <a href="#reservar" class="servicio__enlace" data-reservar-servicio="corte">Reservar este servicio →</a>
+          </div>
         </article>
 
-        <article class="service-card" data-animate="scale">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3c-3 4-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-3-7-6-11z"/>
-            </svg>
+        <article class="servicio" data-animar>
+          <div class="servicio__foto">
+            <img src="images/servicio-2.jpg" alt="Mujer con el pelo rizado y voluminoso sobre un fondo rosado" loading="lazy">
           </div>
-          <h3>Coloración</h3>
-          <p>Color, mechas, balayage y matices. Técnicas actuales para un resultado natural.</p>
-          <span class="service-card__price">Consultar precio</span>
+          <div class="servicio__texto">
+            <span class="numero">002</span>
+            <span class="etiqueta">Color</span>
+            <h3 class="servicio__titulo">Color y mechas</h3>
+            <p class="servicio__descripcion">Color, mechas y balayage con técnicas actuales y un resultado natural.</p>
+            <a href="#reservar" class="servicio__enlace" data-reservar-servicio="color">Reservar este servicio →</a>
+          </div>
         </article>
 
-        <article class="service-card" data-animate="scale">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>
-            </svg>
+        <article class="servicio" data-animar>
+          <div class="servicio__foto">
+            <img src="images/servicio-3.jpg" alt="Peluquera lavando el pelo a una clienta tumbada en el lavacabezas" loading="lazy">
           </div>
-          <h3>Tratamientos capilares</h3>
-          <p>Keratina, hidratación profunda y reparación para un cabello sano y con brillo.</p>
-          <span class="service-card__price">Consultar precio</span>
+          <div class="servicio__texto">
+            <span class="numero">003</span>
+            <span class="etiqueta">Tratamientos</span>
+            <h3 class="servicio__titulo">Keratina e hidratación</h3>
+            <p class="servicio__descripcion">Tratamientos que devuelven al pelo su suavidad, su brillo y su fuerza.</p>
+            <a href="#reservar" class="servicio__enlace" data-reservar-servicio="tratamientos">Reservar este servicio →</a>
+          </div>
         </article>
 
-        <article class="service-card" data-animate="scale">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 18h16l-1.5-8-3.5 3-3-6-3 6-3.5-3z"/><circle cx="12" cy="5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
+        <article class="servicio" data-animar>
+          <div class="servicio__foto">
+            <img src="images/servicio-4.jpg" alt="Novia con vestido blanco sosteniendo un ramo de flores a contraluz" loading="lazy">
           </div>
-          <h3>Recogidos de fiesta y novia</h3>
-          <p>Peinados especiales para bodas, celebraciones y eventos que no se olvidan.</p>
-          <span class="service-card__price">Consultar precio</span>
+          <div class="servicio__texto">
+            <span class="numero">004</span>
+            <span class="etiqueta">Ocasiones</span>
+            <h3 class="servicio__titulo">Recogidos y novias</h3>
+            <p class="servicio__descripcion">Peinados para bodas, eventos y días que quieres recordar.</p>
+            <a href="#reservar" class="servicio__enlace" data-reservar-servicio="ocasiones">Reservar este servicio →</a>
+          </div>
         </article>
 
-        <article class="service-card" data-animate="scale">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="9" y="9" width="6" height="10" rx="1.5"/><path d="M10 9V6a2 2 0 0 1 4 0v3"/>
-            </svg>
+        <article class="servicio" data-animar>
+          <div class="servicio__foto">
+            <img src="images/servicio-5.jpg" alt="Manos con manicura en tono nude apoyadas sobre una manta blanca" loading="lazy">
           </div>
-          <h3>Manicura y pedicura</h3>
-          <p>Cuidado completo de manos y pies, con esmaltado tradicional o semipermanente.</p>
-          <span class="service-card__price">Consultar precio</span>
+          <div class="servicio__texto">
+            <span class="numero">005</span>
+            <span class="etiqueta">Manos</span>
+            <h3 class="servicio__titulo">Manicura y pedicura</h3>
+            <p class="servicio__descripcion">Manos y pies cuidados, con esmalte clásico o semipermanente.</p>
+            <a href="#reservar" class="servicio__enlace" data-reservar-servicio="manos">Reservar este servicio →</a>
+          </div>
         </article>
 
-        <article class="service-card" data-animate="scale">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="7"/>
-              <circle cx="9.5" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
-              <circle cx="14.5" cy="10.5" r="0.6" fill="currentColor" stroke="none"/>
-              <path d="M9 15c1 1 5 1 6 0"/>
-            </svg>
+        <article class="servicio" data-animar>
+          <div class="servicio__foto">
+            <img src="images/servicio-6.jpg" alt="Clienta con los ojos cerrados mientras le aplican una mascarilla facial con pincel" loading="lazy">
           </div>
-          <h3>Estética facial</h3>
-          <p>Tratamientos faciales para limpiar, cuidar y devolver luminosidad a tu piel.</p>
-          <span class="service-card__price">Consultar precio</span>
+          <div class="servicio__texto">
+            <span class="numero">006</span>
+            <span class="etiqueta">Rostro</span>
+            <h3 class="servicio__titulo">Estética facial</h3>
+            <p class="servicio__descripcion">Tratamientos faciales para limpiar, cuidar y dar luz a tu piel.</p>
+            <a href="#reservar" class="servicio__enlace" data-reservar-servicio="rostro">Reservar este servicio →</a>
+          </div>
         </article>
 
       </div>
@@ -243,210 +237,222 @@
   </section>
 
   <!-- ============================================================
-       GALERÍA
-       Carrusel horizontal deslizable (JS en js/galeria.js): arrastre
-       táctil nativo en móvil, flechas y rueda del ratón en escritorio.
-       Placeholders de stock — para poner fotos reales, sustituye cada
-       archivo en /images/galeria/ (galeria-1.jpg, galeria-2.jpg...)
-       manteniendo el mismo nombre, sin tocar el HTML.
+       4. ANTES / DESPUÉS
+       La lógica está en js/antes-despues.js.
+       Las fotos son de EJEMPLO: sustituye images/antes.jpg y
+       images/despues.jpg por trabajos reales del salón (mismo nombre)
+       y entonces podrás quitar el aviso de "Ejemplo".
   ============================================================ -->
-  <section class="section" id="galeria">
-    <div class="container">
-      <div class="section__heading" data-animate>
-        <h2>Nuestro espacio y nuestro trabajo</h2>
-      </div>
-    </div>
+  <section class="seccion seccion--marfil" id="antes-despues">
+    <div class="contenedor centrado" data-animar>
+      <h2 class="titulo-seccion">El cambio <em>se nota</em>.</h2>
+      <p class="antes-despues-aviso">Ejemplo — próximamente trabajos reales del salón</p>
 
-    <div class="gallery-carousel" data-animate="fade">
-      <button class="gallery-carousel__arrow gallery-carousel__arrow--prev" id="galeriaPrev" aria-label="Ver imagen anterior">‹</button>
+      <div class="comparador" id="comparador">
+        <img class="comparador__img" src="images/antes.jpg" alt="Antes: mujer con el pelo recogido en un moño informal" loading="lazy">
 
-      <div class="gallery-carousel__track" id="galeriaTrack">
-        <div class="gallery-carousel__item">
-          <img src="images/galeria/galeria-1.jpg" alt="Interior del salón" loading="lazy">
+        <div class="comparador__capa-despues" id="comparadorDespues">
+          <img class="comparador__img" src="images/despues.jpg" alt="Después: mujer sonriente con la melena recién secada y brillante" loading="lazy">
         </div>
-        <div class="gallery-carousel__item">
-          <img src="images/galeria/galeria-2.jpg" alt="Equipo profesional terminando un secado" loading="lazy">
-        </div>
-        <div class="gallery-carousel__item">
-          <img src="images/galeria/galeria-3.jpg" alt="Resultado de un peinado con textura natural" loading="lazy">
-        </div>
-        <div class="gallery-carousel__item">
-          <img src="images/galeria/galeria-4.jpg" alt="Manicura en tonos negro y dorado" loading="lazy">
-        </div>
-        <div class="gallery-carousel__item">
-          <img src="images/galeria/galeria-5.jpg" alt="Maquillaje y cuidado facial" loading="lazy">
-        </div>
-        <div class="gallery-carousel__item">
-          <img src="images/galeria/galeria-6.jpg" alt="Zona de lavado y cuidado capilar" loading="lazy">
-        </div>
-      </div>
 
-      <button class="gallery-carousel__arrow gallery-carousel__arrow--next" id="galeriaNext" aria-label="Ver imagen siguiente">›</button>
-    </div>
-  </section>
+        <span class="comparador__etiqueta comparador__etiqueta--antes">Antes</span>
+        <span class="comparador__etiqueta comparador__etiqueta--despues">Después</span>
 
-  <!-- ============================================================
-       RESEÑAS / PRUEBA SOCIAL
-       Testimonios de ejemplo — sustituir por reseñas reales de
-       Google cuando estén disponibles.
-  ============================================================ -->
-  <section class="section section--dark" id="resenas">
-    <div class="container">
-      <div class="section__heading" data-animate>
-        <h2>La confianza de nuestros clientes</h2>
-        <div class="rating">
-          <span class="rating__stars" aria-hidden="true">★★★★★</span>
-          <span class="rating__score">4.8 / 5</span>
-          <span class="rating__count">(+92 reseñas en Google)</span>
+        <div class="comparador__linea" id="comparadorLinea">
+          <div class="comparador__agarre"
+               id="comparadorAgarre"
+               role="slider"
+               tabindex="0"
+               aria-label="Mover para comparar antes y después"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">↔</div>
         </div>
-      </div>
-
-      <div class="reviews-grid" data-animate-group>
-        <!-- Testimonio de ejemplo — reemplazar por reseña real -->
-        <article class="review-card" data-animate>
-          <span class="review-card__stars" aria-hidden="true">★★★★★</span>
-          <p>"Un trato increíble desde que entras por la puerta. Salí encantada con mi corte, se nota que son profesionales."</p>
-          <p class="review-card__author">Testimonio de ejemplo</p>
-        </article>
-
-        <!-- Testimonio de ejemplo — reemplazar por reseña real -->
-        <article class="review-card" data-animate>
-          <span class="review-card__stars" aria-hidden="true">★★★★★</span>
-          <p>"El ambiente es súper relajante y el resultado de la coloración superó lo que esperaba. Volveré seguro."</p>
-          <p class="review-card__author">Testimonio de ejemplo</p>
-        </article>
-
-        <!-- Testimonio de ejemplo — reemplazar por reseña real -->
-        <article class="review-card" data-animate>
-          <span class="review-card__stars" aria-hidden="true">★★★★★</span>
-          <p>"Pedí cita para un evento y el recogido quedó perfecto. Atención cercana y muy profesional."</p>
-          <p class="review-card__author">Testimonio de ejemplo</p>
-        </article>
-      </div>
-
-      <div class="reviews-cta">
-        <a href="https://www.google.com/search?q=La+Suite+Peluqueros+San+Agust%C3%ADn+de+Guadalix" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Ver todas las reseñas en Google</a>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       RESERVAS
-       Sistema de reservas SIN backend: el formulario genera un
-       mensaje pre-rellenado y abre WhatsApp con los datos ya
-       escritos. Esto evita depender de plataformas de terceros de
-       pago (como Booksy) y mantiene el control del negocio sobre
-       sus propias reservas, sin coste añadido ni servidor.
-       La lógica completa está en js/reservas.js
+       5. OPINIONES
+       Las opiniones se escriben en js/opiniones.js (lista al principio
+       del archivo). Aquí solo está el hueco donde aparecen.
   ============================================================ -->
-  <section class="section" id="reservas">
-    <div class="container">
-      <div class="section__heading">
-        <h2>Pide tu cita en segundos</h2>
-        <p class="section__subtext">Rellena el formulario y te llevamos directo a WhatsApp con el mensaje ya preparado.</p>
+  <section class="seccion" id="opiniones">
+    <div class="contenedor" data-animar>
+      <div class="opiniones">
+        <div class="opiniones__resumen">
+          <span class="etiqueta">Opiniones</span>
+          <h2 class="opiniones__titulo">Lo que dicen <em>de nosotras</em>.</h2>
+          <p class="opiniones__numero" id="opinionesNumero" aria-label="4,8 de 5">4,8</p>
+          <p class="opiniones__estrellas" aria-hidden="true">★★★★★</p>
+          <p class="opiniones__cantidad">+92 opiniones en Google</p>
+        </div>
+
+        <div class="opiniones__derecha">
+          <div class="opiniones__tarjeta-zona" id="opinionesZona" aria-live="polite"></div>
+          <div class="opiniones__puntos" id="opinionesPuntos"></div>
+          <a class="opiniones__enlace"
+             href="https://www.google.com/maps/search/?api=1&amp;query=La+Suite+Peluqueros+San+Agust%C3%ADn+del+Guadalix"
+             target="_blank" rel="noopener noreferrer">Ver todas las opiniones en Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. GALERÍA (carrusel con profundidad)
+       La lógica está en js/galeria.js. Para cambiar las fotos,
+       sustituye images/galeria/galeria-1.jpg ... galeria-6.jpg.
+  ============================================================ -->
+  <section class="seccion seccion--marfil" id="galeria">
+    <div class="contenedor" data-animar>
+      <div class="section-cabecera centrado">
+        <span class="etiqueta">Galería</span>
+        <h2 class="titulo-seccion espacio-arriba">Un vistazo <em>al salón</em>.</h2>
       </div>
 
-      <form class="booking-form" id="bookingForm" data-animate="scale">
-        <div class="booking-form__row">
+      <div class="galeria-carrusel">
+        <div class="galeria-escenario" id="galeriaEscenario" tabindex="0"
+             role="region" aria-roledescription="carrusel"
+             aria-label="Galería de fotos. Usa las flechas del teclado para pasar de foto.">
+          <div class="galeria-item"><img src="images/galeria/galeria-1.jpg" alt="Interior del salón con espejos redondos, sillones negros y pared de ladrillo" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-2.jpg" alt="Maquilladora aplicando pintalabios a una clienta" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-3.jpg" alt="Mano con manicura en negro y efecto carey" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-4.jpg" alt="Mano sujetando una paleta de sombras de ojos y un pincel" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-5.jpg" alt="Varias manos sosteniendo cepillos, tijeras y herramientas de peluquería" loading="lazy"></div>
+          <div class="galeria-item"><img src="images/galeria/galeria-6.jpg" alt="Tocadores del salón con sillones y espejos junto a grandes ventanales" loading="lazy"></div>
+        </div>
+
+        <div class="galeria-flechas">
+          <button type="button" class="galeria-flecha" id="galeriaAnterior" aria-label="Foto anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" class="galeria-flecha" id="galeriaSiguiente" aria-label="Foto siguiente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="galeria-puntos" id="galeriaPuntos"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. EL SALÓN
+       PENDIENTE: historia real del salón
+  ============================================================ -->
+  <section class="seccion" id="salon">
+    <div class="contenedor salon" data-animar>
+      <div class="salon__foto">
+        <img src="images/salon.jpg" alt="Sillón de peluquería negro frente al espejo, con luz cálida y pared de ladrillo" loading="lazy">
+      </div>
+      <div class="salon__texto">
+        <span class="etiqueta">El salón</span>
+        <h2 class="titulo-seccion espacio-arriba">Un espacio <em>pensado para ti</em>.</h2>
+        <p>Aquí vienes a cuidarte sin prisas. Te escuchamos, te aconsejamos y trabajamos con calma, atentas a cada detalle.</p>
+        <p>Queremos que salgas sintiéndote tú, solo que un poco mejor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. RESERVAR CITA
+       Sin backend: el formulario abre WhatsApp con el mensaje ya
+       escrito (la lógica está en js/main.js). Así el negocio no
+       depende de plataformas de pago y confirma él mismo cada cita.
+       - Domingo: aparece un aviso y no deja enviar.
+       - Sábado: solo se puede elegir la franja de mañana.
+       PENDIENTE: confirmar con el negocio que este móvil es el de reservas
+  ============================================================ -->
+  <section class="seccion seccion--marfil" id="reservar">
+    <div class="contenedor" data-animar>
+      <div class="section-cabecera centrado">
+        <span class="etiqueta">Reservar cita</span>
+        <h2 class="titulo-seccion espacio-arriba">Elige <em>tu momento</em>.</h2>
+        <p class="subtexto centrado-bloque">Rellena estos datos y te abrimos WhatsApp con el mensaje listo. Solo tienes que enviarlo.</p>
+      </div>
+
+      <form class="reserva-formulario" id="formularioReserva">
+        <div class="campo">
           <label for="nombre">Tu nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Ej. María López" required>
+          <input type="text" id="nombre" name="nombre" autocomplete="given-name" required>
         </div>
 
-        <div class="booking-form__row">
-          <label for="servicio">Servicio deseado</label>
+        <div class="campo">
+          <label for="servicio">Servicio</label>
           <select id="servicio" name="servicio" required>
-            <option value="" disabled selected>Selecciona un servicio</option>
-            <option value="Corte y peinado">Corte y peinado</option>
-            <option value="Coloración">Coloración</option>
-            <option value="Tratamientos capilares (keratina, hidratación)">Tratamientos capilares (keratina, hidratación)</option>
-            <option value="Recogido de fiesta o novia">Recogido de fiesta o novia</option>
-            <option value="Manicura y pedicura">Manicura y pedicura</option>
-            <option value="Estética facial">Estética facial</option>
-            <option value="Otro / No estoy seguro/a">Otro / No estoy seguro/a</option>
+            <option value="" disabled selected>Elige un servicio</option>
+            <option value="corte">Corte y peinado</option>
+            <option value="color">Color y mechas</option>
+            <option value="tratamientos">Keratina e hidratación</option>
+            <option value="ocasiones">Recogidos y novias</option>
+            <option value="manos">Manicura y pedicura</option>
+            <option value="rostro">Estética facial</option>
           </select>
         </div>
 
-        <div class="booking-form__row">
-          <label for="fecha">Fecha preferida</label>
+        <div class="campo">
+          <label for="fecha">Día preferido</label>
           <input type="date" id="fecha" name="fecha" required>
+          <p class="campo-aviso" id="avisoDomingo" role="alert">Los domingos estamos cerrados</p>
         </div>
 
-        <div class="booking-form__row">
-          <label for="hora">Hora preferida</label>
-          <select id="hora" name="hora" required>
-            <option value="" disabled selected>Selecciona una franja</option>
-            <option value="10:00 - 11:00">10:00 - 11:00</option>
-            <option value="11:00 - 12:00">11:00 - 12:00</option>
-            <option value="12:00 - 13:00">12:00 - 13:00</option>
-            <option value="13:00 - 14:00">13:00 - 14:00</option>
-            <option value="16:00 - 17:00">16:00 - 17:00</option>
-            <option value="17:00 - 18:00">17:00 - 18:00</option>
-            <option value="18:00 - 19:00">18:00 - 19:00</option>
+        <div class="campo">
+          <label for="franja">Franja horaria</label>
+          <select id="franja" name="franja" required>
+            <option value="" disabled selected>Elige una franja</option>
+            <option value="manana" data-texto="mañana">Mañana (10–14)</option>
+            <option value="tarde" data-texto="tarde">Tarde (14–19)</option>
           </select>
         </div>
 
-        <button type="submit" class="btn btn--gold booking-form__submit">
-          Enviar solicitud por WhatsApp
-        </button>
+        <button type="submit" class="boton boton--dorado reserva-enviar">Enviar por WhatsApp</button>
 
-        <p class="booking-form__note">
-          Al enviar, se abrirá WhatsApp con un mensaje ya escrito. Solo tendrás que pulsar "Enviar".
-          La cita se confirmará por ese medio según disponibilidad.
-        </p>
+        <a href="tel:+34912905470" class="reserva-llamar">¿Prefieres llamar? 912 90 54 70</a>
       </form>
     </div>
   </section>
 
   <!-- ============================================================
-       UBICACIÓN Y CONTACTO
+       9. VISÍTANOS
   ============================================================ -->
-  <section class="section section--dark" id="ubicacion">
-    <div class="container location">
-      <div class="location__info" data-animate="left">
-        <h2>Ubicación y contacto</h2>
+  <section class="seccion" id="visitanos">
+    <div class="contenedor visitanos" data-animar>
+      <div>
+        <span class="etiqueta">Visítanos</span>
+        <h2 class="titulo-seccion espacio-arriba">Te <em>esperamos</em>.</h2>
 
-        <ul class="location__list">
-          <li>
-            <strong>Dirección</strong>
-            <span>C. de Julián Berrendero, 3, 28750 San Agustín del Guadalix, Madrid</span>
-          </li>
-          <li>
-            <strong>Teléfono</strong>
-            <span><a href="tel:+34912905470">912 90 54 70</a></span>
-          </li>
-          <li>
-            <strong>Email</strong>
-            <span><a href="mailto:oncemillas@hotmail.es">oncemillas@hotmail.es</a></span>
-          </li>
-          <li>
-            <!-- Horario a confirmar con el negocio: hay fuentes contradictorias.
-                 Verificar antes de publicar y ajustar si es necesario. -->
-            <strong>Horario</strong>
-            <span>
-              Lunes a viernes: 10:00 - 19:00<br>
-              Sábados: 10:00 - 14:00<br>
-              Domingos: cerrado
-            </span>
-          </li>
-        </ul>
+        <p class="visitanos__direccion">C. de Julián Berrendero, 3<br>28750 San Agustín del Guadalix, Madrid</p>
 
-        <div class="social-icons">
-          <a href="https://instagram.com/lasuitepeluqueros" target="_blank" rel="noopener noreferrer" aria-label="Instagram de La Suite Peluqueros">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .2 2.5.4.6.2 1 .5 1.5 1 .4.4.7.9 1 1.5.2.5.3 1.2.4 2.5.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 2-.4 2.5-.2.6-.5 1-1 1.5-.4.4-.9.7-1.5 1-.5.2-1.2.3-2.5.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.2-2.5-.4-.6-.2-1-.5-1.5-1-.4-.4-.7-.9-1-1.5-.2-.5-.3-1.2-.4-2.5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-2 .4-2.5.2-.6.5-1 1-1.5.4-.4.9-.7 1.5-1 .5-.2 1.2-.3 2.5-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .3-.5.2-.8.4-1.2.8-.4.4-.6.7-.8 1.2-.1.4-.3 1-.3 2C3 9.5 3 9.9 3 13c0 3.1 0 3.5.1 4.7.1 1 .2 1.6.3 2 .2.5.4.8.8 1.2.4.4.7.6 1.2.8.4.1 1 .3 2 .3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.3.5-.2.8-.4 1.2-.8.4-.4.6-.7.8-1.2.1-.4.3-1 .3-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-2-.2-.5-.4-.8-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.1-1-.3-2-.3-1.2-.1-1.6-.1-4.7-.1zm0 4.3a5.7 5.7 0 1 1 0 11.4 5.7 5.7 0 0 1 0-11.4zm0 1.8a3.9 3.9 0 1 0 0 7.8 3.9 3.9 0 0 0 0-7.8zm5.9-2a1.3 1.3 0 1 1 -2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+        <!-- PENDIENTE: confirmar horario, una fuente dice que cierran los miércoles -->
+        <table class="visitanos__tabla">
+          <caption class="oculto-visual">Horario de apertura</caption>
+          <tr data-dias="1,2,3,4,5"><td>Lunes a viernes</td><td>10:00–19:00</td></tr>
+          <tr data-dias="6"><td>Sábados</td><td>10:00–14:00</td></tr>
+          <tr data-dias="0"><td>Domingos</td><td>Cerrado</td></tr>
+        </table>
+
+        <div class="visitanos__contacto">
+          <a href="tel:+34912905470">Teléfono · 912 90 54 70</a>
+          <!-- PENDIENTE: confirmar con el negocio que este móvil es el de reservas -->
+          <a href="https://wa.me/34654627149" target="_blank" rel="noopener noreferrer">WhatsApp · 654 627 149</a>
+          <a href="mailto:oncemillas@hotmail.es">oncemillas@hotmail.es</a>
+        </div>
+
+        <div class="visitanos__redes">
+          <a href="https://www.instagram.com/lasuitepeluqueros/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de La Suite Peluqueros">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de La Suite Peluqueros">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13.5 21v-7.9h2.7l.4-3.1h-3.1V8.1c0-.9.2-1.5 1.6-1.5h1.6V3.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H7.8v3.1h2.7V21h3z"/></svg>
+          <a href="https://www.facebook.com/people/La-Suite-peluqueros/100067002258093/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de La Suite Peluqueros">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M14 8h2.5V4.5H14c-2.2 0-4 1.8-4 4V11H7.5v3.5H10V20h3.5v-5.5H16l.5-3.5h-3V8.5c0-.3.2-.5.5-.5z"/></svg>
           </a>
         </div>
       </div>
 
-      <div class="location__map" data-animate="right">
+      <div class="visitanos__mapa">
         <iframe
-          title="Mapa de ubicación de La Suite Peluqueros"
-          src="https://www.google.com/maps?q=C.+de+Juli%C3%A1n+Berrendero,+3,+28750+San+Agust%C3%ADn+del+Guadalix,+Madrid&output=embed"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+          title="Mapa: La Suite Peluqueros en San Agustín del Guadalix"
+          src="https://www.google.com/maps?q=C.+de+Juli%C3%A1n+Berrendero,+3,+28750+San+Agust%C3%ADn+del+Guadalix,+Madrid&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -454,71 +460,50 @@
 </main>
 
 <!-- ============================================================
-     FOOTER
+     10. PIE DE PÁGINA
+     El año se pone solo con JavaScript (js/main.js).
 ============================================================ -->
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <p class="logo">La Suite <span>Peluqueros</span></p>
-      <p>Peluquería unisex &amp; salón de belleza en San Agustín de Guadalix, Madrid.</p>
-    </div>
-
-    <div class="footer__contact">
-      <p>C. de Julián Berrendero, 3, 28750 San Agustín del Guadalix, Madrid</p>
-      <p><a href="tel:+34912905470">912 90 54 70</a> · <a href="mailto:oncemillas@hotmail.es">oncemillas@hotmail.es</a></p>
-    </div>
-
-    <div class="footer__social">
-      <a href="https://instagram.com/lasuitepeluqueros" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-    </div>
+<footer class="pie">
+  <p class="pie__logo">La Suite</p>
+  <p class="pie__direccion">C. de Julián Berrendero, 3 · 28750 San Agustín del Guadalix, Madrid</p>
+  <div class="pie__redes">
+    <a href="https://www.instagram.com/lasuitepeluqueros/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.facebook.com/people/La-Suite-peluqueros/100067002258093/" target="_blank" rel="noopener noreferrer">Facebook</a>
   </div>
-  <div class="footer__bottom">
-    <p>&copy; <span id="year"></span> La Suite Peluqueros. Todos los derechos reservados.</p>
-  </div>
+  <p class="pie__copyright">© <span id="anio"></span> La Suite Peluqueros</p>
 </footer>
 
 <!-- ============================================================
-     BOTÓN FLOTANTE DE WHATSAPP
+     PÍLDORA DE NAVEGACIÓN (solo móvil)
+     Flota abajo, separada 16px de los bordes. La sección en la que
+     estás se marca en dorado (js/main.js). En el ordenador no se ve.
 ============================================================ -->
-<a href="https://wa.me/34912905470" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Escríbenos por WhatsApp">
-  <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3.2.8.9-3.1-.2-.3C3.7 14.8 3.2 13.4 3.2 12c0-4.8 3.9-8.7 8.8-8.7s8.8 3.9 8.8 8.7-3.9 8.7-8.8 8.7z"/></svg>
-</a>
-
-<!-- ============================================================
-     NAVEGACIÓN MÓVIL — PÍLDORA FLOTANTE
-     Solo visible en móvil (ver media query en css/style.css).
-     Independiente del header: no es una barra pegada al borde
-     inferior, sino una píldora flotante con margen de aire
-     alrededor, fija dentro de la zona cómoda para el pulgar.
-============================================================ -->
-<nav class="mobile-nav" aria-label="Navegación móvil">
-  <a href="#inicio" class="mobile-nav__link" data-section="inicio" aria-label="Inicio">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h5v-5h2v5h5v-9"/></svg>
-    <span>Inicio</span>
-  </a>
-  <a href="#servicios" class="mobile-nav__link" data-section="servicios" aria-label="Servicios">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.3"/><circle cx="6" cy="18" r="2.3"/><line x1="8.3" y1="7.4" x2="19" y2="18"/><line x1="8.3" y1="16.6" x2="19" y2="6"/></svg>
+<nav class="pildora" aria-label="Navegación rápida">
+  <a href="#servicios" class="pildora__link" data-section="servicios">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.2 7.2L20 18M8.2 16.8L20 6"/></svg>
     <span>Servicios</span>
   </a>
-  <a href="#galeria" class="mobile-nav__link" data-section="galeria" aria-label="Galería">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="1.5"/><circle cx="9" cy="10" r="1.4"/><path d="M5 17l4.2-4.2 3 3L16.5 12 19 15.5"/></svg>
+  <a href="#opiniones" class="pildora__link" data-section="opiniones">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg>
+    <span>Opiniones</span>
+  </a>
+  <a href="#galeria" class="pildora__link" data-section="galeria">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M4 17l5-4.5 3.5 3 3-2.5L20 17"/></svg>
     <span>Galería</span>
   </a>
-  <a href="#ubicacion" class="mobile-nav__link" data-section="ubicacion" aria-label="Ubicación">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-    <span>Ubicación</span>
+  <a href="#visitanos" class="pildora__link" data-section="visitanos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.4 7-11.2A7 7 0 0 0 5 9.8C5 14.6 12 21 12 21z"/><circle cx="12" cy="10" r="2.5"/></svg>
+    <span>Contacto</span>
   </a>
-  <a href="#reservas" class="mobile-nav__link mobile-nav__link--cta" data-section="reservas" aria-label="Reservar cita">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1.5"/><line x1="4" y1="9.5" x2="20" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+  <a href="#reservar" class="pildora__link pildora__link--cta" data-section="reservar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 9.5h16M8.5 3v4M15.5 3v4"/></svg>
     <span>Reservar</span>
   </a>
 </nav>
 
 <script src="js/main.js"></script>
-<script src="js/animaciones.js"></script>
-<script src="js/reservas.js"></script>
-<script src="js/comparador.js"></script>
+<script src="js/opiniones.js"></script>
 <script src="js/galeria.js"></script>
+<script src="js/antes-despues.js"></script>
 </body>
 </html>
