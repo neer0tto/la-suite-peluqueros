@@ -96,6 +96,8 @@ h1, h2, h3 {
   font-family: var(--fuente-titulos);
   font-weight: 500;
   line-height: 1.15;
+  /* Reparte las palabras entre líneas para que no quede una sola suelta */
+  text-wrap: balance;
 }
 
 h1 em, h2 em, h3 em {
@@ -127,9 +129,11 @@ h1 em, h2 em, h3 em {
 
 .numero {
   font-family: var(--fuente-titulos);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--dorado);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  /* Números "rectos" (Cormorant por defecto los dibuja como letras bajas) */
+  font-variant-numeric: lining-nums;
 }
 
 .boton {
@@ -245,13 +249,17 @@ h1 em, h2 em, h3 em {
   .cabecera {
     height: 104px;
     background-color: transparent;
+    /* Sin desenfoque en ordenador: si no, la foto de la portada
+       se vería borrosa justo debajo del menú */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     justify-content: initial;
   }
 
   .cabecera.esta-scrolleada {
     height: 76px;
     background-color: var(--negro);
-    border-bottom-color: var(--dorado-30);
+    border-bottom-color: rgba(198, 161, 91, 0.55);
   }
 
   .cabecera__inner {
@@ -393,7 +401,7 @@ button:focus-visible,
 }
 
 .pildora__link span {
-  font-size: 0.56rem;
+  font-size: 0.6rem;
   letter-spacing: 0.3px;
   text-transform: uppercase;
 }
@@ -832,8 +840,9 @@ button:focus-visible,
 .opiniones__numero {
   font-family: var(--fuente-titulos);
   color: var(--dorado);
-  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-size: clamp(5rem, 18vw, 8.5rem);
   line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .opiniones__estrellas {
@@ -895,7 +904,6 @@ button:focus-visible,
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 24px;
 }
 
 .opiniones__punto {
@@ -945,6 +953,15 @@ button:focus-visible,
   .opiniones__enlace {
     margin-inline: 0;
   }
+
+  .opiniones__puntos {
+    justify-content: flex-start;
+  }
+
+  /* En ordenador el comparador es algo más estrecho para caber en pantalla */
+  .comparador {
+    max-width: 560px;
+  }
 }
 
 /* ---------- GALERÍA (carrusel con profundidad) ---------- */
@@ -964,6 +981,9 @@ button:focus-visible,
   align-items: center;
   justify-content: center;
   touch-action: pan-y;
+  /* Evita que al arrastrar con el ratón se seleccionen las fotos en azul */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .galeria-item {
