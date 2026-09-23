@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-09-23T13:57:04.774Z",
         "reason": "User's restructuring brief explicitly requires a small gold-bordered label 'SAN AGUSTÍN DEL GUADALIX' above the hero title"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-09-23T14:48:51.611Z",
+        "reason": "Intentional crossfade galleries (hero: 3 photos/5s, each service: 2 photos/4s) explicitly requested by the user in the 'ajustes de pulido' brief. The opacity:0 siblings are the not-yet-visible frames of an active JS crossfade (js/main.js), not abandoned/dead content."
       }
     ]
   }
