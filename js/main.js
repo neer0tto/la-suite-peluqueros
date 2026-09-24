@@ -7,6 +7,8 @@
    3) El formulario de "Reservar cita" y su mensaje de WhatsApp.
    4) Las fotos de la portada y de cada servicio, que se van
       fundiendo entre sí solas.
+   5) La animación en cascada de los bloques de Servicios, al
+      bajar y al subir.
 
    Los otros archivos (opiniones.js, galeria.js) llevan cada uno su
    propia parte, para que sea fácil encontrar qué tocar si quieres
@@ -213,5 +215,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
   iniciarFundidoDeFotos('.portada__foto', 5000);
   iniciarFundidoDeFotos('.servicio__foto', 4000);
+
+  /* ==========================================================
+     5) SERVICIOS: ANIMACIÓN EN CASCADA AL BAJAR Y AL SUBIR
+     Cada uno de los 6 bloques (foto + texto) se anima por su
+     cuenta al entrar en pantalla, y no solo la primera vez: se
+     repite siempre, tanto bajando como subiendo. Para saber en
+     qué dirección va el usuario, comparamos el scroll actual con
+     el último que guardamos. Según la dirección, ponemos una
+     clase distinta ("entra-bajando" o "entra-subiendo"); el CSS
+     tiene una animación diferente para cada una.
+
+     Si el usuario prefiere "reducir movimiento", no se hace nada
+     aquí: el CSS ya deja los bloques fijos y visibles siempre.
+  ========================================================== */
+  const bloquesServicio = document.querySelectorAll('.servicio');
+  if (bloquesServicio.length && !prefiereMenosMovimientoFotos) {
+    let ultimoScrollY = window.scrollY;
+
+    const observadorServicios = new IntersectionObserver(function (entradas) {
+      const bajando = window.scrollY >= ultimoScrollY;
+      ultimoScrollY = window.scrollY;
+
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) return;
+        const bloque = entrada.target;
+
+        // Quitamos las dos clases y forzamos un "reflow" leyendo
+        // offsetWidth: así, si vuelve a tocar la misma clase de
+        // antes, el navegador reinicia la animación en vez de
+        // ignorarla por ya estar puesta.
+        bloque.classList.remove('entra-bajando', 'entra-subiendo');
+        void bloque.offsetWidth;
+        bloque.classList.add(bajando ? 'entra-bajando' : 'entra-subiendo');
+      });
+    }, { threshold: 0.2 });
+
+    bloquesServicio.forEach(function (bloque) { observadorServicios.observe(bloque); });
+  }
 
 });

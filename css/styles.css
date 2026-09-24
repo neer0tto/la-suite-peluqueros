@@ -680,16 +680,45 @@ button:focus-visible,
 }
 
 /* ---------- SERVICIOS (estilo portada de revista) ---------- */
+#servicios {
+  padding: 56px 0; /* antes: 88px (heredado de .seccion) */
+}
+
 .servicios-lista {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 44px; /* antes: 72px */
 }
 
 .servicio {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
+  opacity: 0;
+}
+
+/* Animación en cascada: cada bloque (foto + texto) entra por
+   separado, y se repite cada vez que aparece en pantalla, tanto
+   bajando como subiendo. La dirección la calcula js/main.js y
+   pone una de estas dos clases. */
+.servicio.entra-bajando {
+  animation: servicioEntraBajando 0.7s var(--curva) both;
+}
+
+.servicio.entra-subiendo {
+  animation: servicioEntraSubiendo 0.7s var(--curva) both;
+}
+
+@keyframes servicioEntraBajando {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Al subir usamos la dirección contraria (desde arriba hacia
+   abajo) para que no se sienta igual que al bajar. */
+@keyframes servicioEntraSubiendo {
+  from { opacity: 0; transform: translateY(-32px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .servicio__foto {
@@ -746,7 +775,7 @@ button:focus-visible,
 
 @media (min-width: 900px) {
   .servicios-lista {
-    gap: 120px;
+    gap: 76px; /* antes: 120px */
   }
 
   .servicio {
@@ -1226,10 +1255,11 @@ button:focus-visible,
 
 /* ---------- SECCIONES MÁS COMPACTAS ----------
    Opiniones, Galería, El salón y Visítanos ocupan menos alto que
-   antes (aprox. un 25% menos de espacio arriba/abajo). Servicios y
-   Reservar cita se dejan exactamente igual, a propósito: son las
-   dos secciones más importantes de la página. No se quita ningún
-   texto ni foto, solo se acerca todo un poco. */
+   antes (aprox. un 25% menos de espacio arriba/abajo). Reservar
+   cita se deja exactamente igual, a propósito: es la sección más
+   importante de la página. No se quita ningún texto ni foto, solo
+   se acerca todo un poco. Servicios se compactó aparte, más abajo,
+   junto a su animación en cascada. */
 #opiniones,
 #galeria,
 #salon,
@@ -1329,6 +1359,15 @@ button:focus-visible,
 
   [data-animar] {
     transition: none;
+  }
+
+  .servicio {
+    opacity: 1;
+  }
+
+  .servicio.entra-bajando,
+  .servicio.entra-subiendo {
+    animation: none;
   }
 
   .opiniones__tarjeta {
