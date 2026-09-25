@@ -1354,20 +1354,32 @@ button:focus-visible,
 
 /* ---------- Mensaje de confirmación ----------
    No existía antes: lo añadí porque el prompt pedía mostrarlo tras
-   el check, y no había ningún aviso de confirmación en la web. */
+   el check, y no había ningún aviso de confirmación en la web.
+
+   Para animar la altura sin tocar "height"/"max-height" (que fuerzan
+   recalcular el layout de toda la página y van a tirones), usamos el
+   truco de "grid-template-rows": pasa de una fila de 0fr a 1fr, y el
+   texto de dentro (en un <span>) se recorta con overflow:hidden
+   mientras crece. Es la misma idea que "height:auto" animado, pero
+   sin el coste de layout. */
 .reserva-confirmacion {
+  display: grid;
+  grid-template-rows: 0fr;
   text-align: center;
   font-size: 0.9rem;
   color: var(--negro);
   opacity: 0;
-  max-height: 0;
+  transition: opacity 0.5s var(--curva), grid-template-rows 0.5s var(--curva);
+}
+
+.reserva-confirmacion > span {
   overflow: hidden;
-  transition: opacity 0.5s var(--curva), max-height 0.5s var(--curva);
+  min-height: 0;
 }
 
 .reserva-confirmacion.esta-visible {
   opacity: 1;
-  max-height: 100px;
+  grid-template-rows: 1fr;
 }
 
 /* ---------- VISÍTANOS ---------- */
