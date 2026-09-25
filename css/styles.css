@@ -1130,12 +1130,135 @@ button:focus-visible,
 }
 
 /* ---------- RESERVAR ---------- */
+#reservar {
+  position: relative;
+  overflow: hidden; /* los iconos de fondo nunca provocan scroll horizontal */
+}
+
+/* ---------- Iconos decorativos de fondo ----------
+   Tijeras, peine, secador y brocha, dibujados a mano en líneas
+   finas doradas. Van detrás del formulario (z-index 0, el
+   formulario tiene z-index 1) y muy tenues (14-18% de opacidad)
+   para no competir con el contenido. Flotan despacio, cada uno
+   con su propio ritmo para que no se muevan a la vez. Con
+   "reducir movimiento" activado se quedan quietos (ver más abajo). */
+.reserva-decoracion {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  color: var(--dorado);
+}
+
+.reserva-decoracion svg {
+  position: absolute;
+}
+
+.icono-tijeras {
+  top: 6%;
+  left: 4%;
+  width: 84px;
+  height: 84px;
+  opacity: 0.16;
+  transform: rotate(-18deg);
+  animation: flotarTijeras 8s var(--curva) infinite;
+}
+
+.icono-peine {
+  bottom: 8%;
+  left: 5%;
+  width: 60px;
+  height: 60px;
+  opacity: 0.14;
+  transform: rotate(8deg);
+  animation: flotarPeine 7s var(--curva) infinite;
+  animation-delay: -2s;
+}
+
+.icono-secador {
+  top: 8%;
+  right: 4%;
+  width: 96px;
+  height: 96px;
+  opacity: 0.16;
+  transform: rotate(10deg);
+  animation: flotarSecador 9s var(--curva) infinite;
+  animation-delay: -4s;
+}
+
+.icono-brocha {
+  bottom: 10%;
+  right: 6%;
+  width: 58px;
+  height: 58px;
+  opacity: 0.14;
+  transform: rotate(-6deg);
+  animation: flotarBrocha 10s var(--curva) infinite;
+  animation-delay: -6s;
+}
+
+@keyframes flotarTijeras {
+  0%, 100% { transform: translateY(0) rotate(-18deg); }
+  50% { transform: translateY(-12px) rotate(-13deg); }
+}
+
+@keyframes flotarPeine {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  50% { transform: translateY(10px) rotate(3deg); }
+}
+
+@keyframes flotarSecador {
+  0%, 100% { transform: translateY(0) rotate(10deg); }
+  50% { transform: translateY(-14px) rotate(15deg); }
+}
+
+@keyframes flotarBrocha {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(9px) rotate(-1deg); }
+}
+
+@media (max-width: 899px) {
+  /* En móvil hay menos aire alrededor del formulario: los iconos
+     se quedan más pegados a las esquinas y algo más pequeños. */
+  .icono-tijeras { width: 56px; height: 56px; top: 2%; left: 2%; }
+  .icono-peine { width: 44px; height: 44px; bottom: 3%; left: 3%; }
+  .icono-secador { width: 64px; height: 64px; top: 1%; right: 2%; }
+  .icono-brocha { width: 42px; height: 42px; bottom: 2%; right: 3%; }
+}
+
 .reserva-formulario {
+  position: relative;
+  z-index: 1; /* por encima de .reserva-decoracion */
   max-width: 620px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 40px; /* antes: 28px, más aire entre grupos */
+  padding: 40px 32px;
+  border: 1px solid var(--dorado-30);
+  border-radius: 2px;
+  background-color: var(--marfil); /* opaca, para enmarcar y que no se crucen los iconos de fondo */
+}
+
+@media (max-width: 899px) {
+  .reserva-formulario {
+    padding: 32px 20px;
+  }
+}
+
+.reserva-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* antes: 28px (gap entre campos suelto) */
+}
+
+.reserva-acciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 28px;
+  border-top: 1px solid var(--dorado-30); /* línea fina que separa campos de la acción de enviar */
 }
 
 .campo {
@@ -1184,8 +1307,39 @@ button:focus-visible,
   display: block;
 }
 
+/* ---------- Botón "Enviar por WhatsApp" -> check dorado ----------
+   El botón lleva el texto y el check ya en el HTML, uno encima del
+   otro; al enviar, js/main.js le pone la clase "esta-enviado" y el
+   CSS hace la transición: el texto se desvanece y el check aparece
+   con un pequeño retraso, para que se sienta como una sola
+   transformación en vez de dos cosas a la vez. */
 .reserva-enviar {
-  margin-top: 8px;
+  position: relative;
+}
+
+.reserva-enviar__texto {
+  transition: opacity 0.3s var(--curva), transform 0.3s var(--curva);
+}
+
+.reserva-enviar__check {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.35s var(--curva) 0.15s, transform 0.35s var(--curva) 0.15s;
+}
+
+.reserva-enviar.esta-enviado .reserva-enviar__texto {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.reserva-enviar.esta-enviado .reserva-enviar__check {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .reserva-llamar {
@@ -1196,6 +1350,24 @@ button:focus-visible,
   padding-bottom: 2px;
   width: fit-content;
   margin: 0 auto;
+}
+
+/* ---------- Mensaje de confirmación ----------
+   No existía antes: lo añadí porque el prompt pedía mostrarlo tras
+   el check, y no había ningún aviso de confirmación en la web. */
+.reserva-confirmacion {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--negro);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s var(--curva), max-height 0.5s var(--curva);
+}
+
+.reserva-confirmacion.esta-visible {
+  opacity: 1;
+  max-height: 100px;
 }
 
 /* ---------- VISÍTANOS ---------- */
@@ -1464,6 +1636,26 @@ button:focus-visible,
   .pildora__link,
   .servicio__enlace,
   .boton {
+    transition: none;
+  }
+
+  /* Iconos de fondo de "Reservar cita": quietos, sin flotar. */
+  .icono-tijeras,
+  .icono-peine,
+  .icono-secador,
+  .icono-brocha {
+    animation: none;
+  }
+
+  /* Botón "Enviar por WhatsApp" -> check: el cambio es instantáneo,
+     sin fundido ni escala (js/main.js pone el check directamente,
+     sin esperar). */
+  .reserva-enviar__texto,
+  .reserva-enviar__check {
+    transition: none;
+  }
+
+  .reserva-confirmacion {
     transition: none;
   }
 }

@@ -129,6 +129,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  const botonReservaEnviar = document.querySelector('.reserva-enviar');
+  const reservaConfirmacion = document.getElementById('reservaConfirmacion');
+
   if (formulario) {
     formulario.addEventListener('submit', function (evento) {
       evento.preventDefault();
@@ -151,6 +154,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const url = 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(mensaje);
       window.open(url, '_blank', 'noopener,noreferrer');
+
+      // El botón se convierte en un check dorado y, justo después,
+      // aparece el mensaje de confirmación. Con "reducir movimiento"
+      // no hay transición: el check y el mensaje aparecen ya puestos.
+      if (botonReservaEnviar) botonReservaEnviar.classList.add('esta-enviado');
+      if (reservaConfirmacion) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          reservaConfirmacion.classList.add('esta-visible');
+        } else {
+          setTimeout(function () {
+            reservaConfirmacion.classList.add('esta-visible');
+          }, 350);
+        }
+      }
     });
   }
 
