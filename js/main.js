@@ -9,6 +9,7 @@
       fundiendo entre sí solas.
    5) La animación en cascada de los bloques de Servicios, al
       bajar y al subir.
+   6) El parallax de las fotos de Servicios, solo en escritorio.
 
    Los otros archivos (opiniones.js, galeria.js) llevan cada uno su
    propia parte, para que sea fácil encontrar qué tocar si quieres
@@ -252,6 +253,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.2 });
 
     bloquesServicio.forEach(function (bloque) { observadorServicios.observe(bloque); });
+  }
+
+  /* ==========================================================
+     6) SERVICIOS EN ESCRITORIO: PARALLAX EN LAS FOTOS
+     Solo a partir de 900px de ancho (en móvil no se toca nada).
+     Cada foto se mueve un poco más lenta que el resto de la
+     página mientras se hace scroll, dando sensación de
+     profundidad. El CSS hace la foto un poco más alta que su
+     marco (ver ".servicio__foto-item" en el @media de 900px) para
+     que ese movimiento nunca deje ver un hueco vacío en el borde;
+     por si acaso, aquí también limitamos el desplazamiento a
+     ±48px.
+  ========================================================== */
+  const consultaEscritorioServicios = window.matchMedia('(min-width: 900px)');
+  const fotosServicioParaParallax = document.querySelectorAll('.servicio__foto');
+
+  if (fotosServicioParaParallax.length && !prefiereMenosMovimientoFotos) {
+    let tickeandoParallax = false;
+
+    function actualizarParallaxServicios() {
+      tickeandoParallax = false;
+
+      fotosServicioParaParallax.forEach(function (marco) {
+        const fotos = marco.querySelectorAll('.servicio__foto-item');
+
+        if (!consultaEscritorioServicios.matches) {
+          // Fuera de escritorio: nos aseguramos de no dejar
+          // ningún desplazamiento puesto de una vez anterior.
+          fotos.forEach(function (foto) { foto.style.transform = ''; });
+          return;
+        }
+
+        const rect = marco.getBoundingClientRect();
+        const centroMarco = rect.top + rect.height / 2;
+        const centroPantalla = window.innerHeight / 2;
+        let desplazamiento = (centroPantalla - centroMarco) * 0.1;
+        desplazamiento = Math.max(-48, Math.min(48, desplazamiento));
+
+        fotos.forEach(function (foto) {
+          foto.style.transform = 'translateY(' + desplazamiento.toFixed(1) + 'px)';
+        });
+      });
+    }
+
+    function pedirActualizacionParallax() {
+      if (tickeandoParallax) return;
+      tickeandoParallax = true;
+      requestAnimationFrame(actualizarParallaxServicios);
+    }
+
+    window.addEventListener('scroll', pedirActualizacionParallax, { passive: true });
+    window.addEventListener('resize', pedirActualizacionParallax);
+    actualizarParallaxServicios();
   }
 
 });

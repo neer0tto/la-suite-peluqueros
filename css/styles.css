@@ -774,23 +774,86 @@ button:focus-visible,
 }
 
 @media (min-width: 900px) {
+  /* Cuadrícula de 2 columnas x 3 filas. El diseño "alternado"
+     (foto a un lado, texto al otro) que usábamos en una sola
+     columna no cabe bien en una tarjeta de la mitad de ancho, así
+     que aquí cada tarjeta pasa a llevar la foto arriba y el texto
+     debajo, igual en las 6 (mismo criterio que en móvil, pero en
+     2 columnas). Así las 6 tarjetas quedan parejas entre sí. */
   .servicios-lista {
-    gap: 76px; /* antes: 120px */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 48px;
+    row-gap: 72px;
   }
 
   .servicio {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 64px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    /* En escritorio el bloque entero ya no se anima como una sola
+       pieza: la foto y el texto se animan cada una por su lado,
+       más abajo ("movimiento marcado al bajar"). */
+    opacity: 1;
   }
 
-  /* Alterna la foto de lado: impares foto a la derecha, pares a la izquierda */
-  .servicio:nth-child(odd) .servicio__foto {
-    order: 2;
+  .servicio.entra-bajando,
+  .servicio.entra-subiendo {
+    animation: none;
   }
 
-  .servicio:nth-child(odd) .servicio__texto {
-    order: 1;
+  /* ---------- Foto: zoom de entrada + parallax ----------
+     El zoom (de 1.1 a 1.0) lo pone esta animación al entrar en
+     pantalla. El parallax (que la foto se mueva un poco más lenta
+     que el resto al hacer scroll) lo calcula js/main.js y lo
+     aplica como "transform" directamente a cada foto; por eso la
+     foto necesita ser un poco más alta que su marco (ver más abajo
+     en .servicio__foto-item), para que ese movimiento no deje ver
+     huecos vacíos en los bordes. */
+  .servicio__foto {
+    opacity: 0;
+  }
+
+  .servicio.entra-bajando .servicio__foto,
+  .servicio.entra-subiendo .servicio__foto {
+    animation: servicioFotoZoomEntrada 0.9s var(--curva) both;
+  }
+
+  @keyframes servicioFotoZoomEntrada {
+    from { opacity: 0; transform: scale(1.1); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .servicio__foto-item {
+    top: -8%;
+    height: 116%;
+  }
+
+  /* ---------- Texto: desplazamiento más grande ----------
+     Mismo espíritu que la animación en cascada del resto de la
+     web (fundido + desplazamiento, curva suave), pero con un
+     recorrido bastante más largo (80px) para que en escritorio se
+     note más que en el resto del sitio. Sigue distinguiendo bajar
+     de subir, como en móvil. */
+  .servicio__texto {
+    opacity: 0;
+  }
+
+  .servicio.entra-bajando .servicio__texto {
+    animation: servicioTextoBajandoEscritorio 0.8s var(--curva) both;
+  }
+
+  .servicio.entra-subiendo .servicio__texto {
+    animation: servicioTextoSubiendoEscritorio 0.8s var(--curva) both;
+  }
+
+  @keyframes servicioTextoBajandoEscritorio {
+    from { opacity: 0; transform: translateY(80px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes servicioTextoSubiendoEscritorio {
+    from { opacity: 0; transform: translateY(-80px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 
@@ -1367,6 +1430,22 @@ button:focus-visible,
 
   .servicio.entra-bajando,
   .servicio.entra-subiendo {
+    animation: none;
+  }
+
+  /* En escritorio, la foto y el texto de cada servicio se animan
+     por separado (ver @media 900px). Aquí se dejan fijos y
+     visibles, y sin parallax (eso lo corta js/main.js). */
+  .servicio__foto,
+  .servicio__texto {
+    opacity: 1;
+    transform: none;
+  }
+
+  .servicio.entra-bajando .servicio__foto,
+  .servicio.entra-subiendo .servicio__foto,
+  .servicio.entra-bajando .servicio__texto,
+  .servicio.entra-subiendo .servicio__texto {
     animation: none;
   }
 
